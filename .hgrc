@@ -1,0 +1,81 @@
+[ui]
+username = Ilya Yurtaev <ilya.yurtaev@gmail.com>
+merge = internal:merge
+editor = vim
+
+[web]
+push_ssl = false
+allow_push = *
+cacerts = /etc/ssl/certs/ca-certificates.crt
+
+[extensions]
+purge =
+bookmarks =
+color =
+eol =
+graphlog =
+mq =
+pager =
+progress =
+zeroconf =
+
+[alias]
+ll = log -G
+
+[patterns]
+Windows.txt = CRLF
+Unix.txt = LF
+**.py = native
+**.php = native
+**.vcproj = CRLF
+**.txt = native
+**.htm = native
+**.html = native
+**.xml = native
+**.css = native
+**.js = native
+Makefile = LF
+**.jpg = BIN
+**.png = BIN
+**.gif = BIN
+**.exe = BIN
+
+[repository]
+native = LF
+
+[diff]
+git=1
+
+[extdiff]
+#cmd.windiff = windiff
+
+[merge-patterns]
+** = filemerge
+
+[merge-tools]
+filemerge.executable = vim
+filemerge.args = -d $local $other
+filemerge.checkchanged = true
+filemerge.gui = true
+
+[color]
+status.modified = blue bold
+status.added = green bold
+status.removed = red bold
+status.deleted = red bold
+status.unknown = blue bold
+status.ignored = black bold
+
+qseries.applied = blue bold underline
+qseries.unapplied = black bold
+qseries.missing = red bold
+
+diff.diffline = bold
+diff.extended = cyan bold
+diff.file_a = red bold
+diff.file_b = green bold
+diff.hunk = black
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = bold red_background
