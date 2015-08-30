@@ -1,0 +1,10 @@
+.irbrc
+.tmux.conf
+.zshrc
+.profile
+.gitconfig
+.screenrc
+.vimperatorrc
+.ghci
+.vimrc
+.emacs

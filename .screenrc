@@ -1,0 +1,20 @@
+startup_message off
+caption always "%{= 45}%{Wk}%n | %h %=%t %c"
+hardstatus alwayslastline "%-Lw%{= gk}%50>%n%f* %t%{-}%+Lw%<"
+shell zsh
+altscreen on
+maptimeout 5
+vbell off
+defscrollback 1000
+
+# allow bold colors - necessary for some reason
+attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+#termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# erase background with current bg color
+defbce "on"
+
+screen -t stuff 0
+# screen -t mc 1 mc
+#layout new desktop
+#layout autosave on 

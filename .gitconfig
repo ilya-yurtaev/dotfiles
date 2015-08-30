@@ -1,0 +1,14 @@
+[color]
+    ui = True
+
+[merge]
+    tool = vimdiff
+
+[mergetool]
+    prompt = false
+
+[push]
+    default = current
+
+[include]
+    path = "~/.git-credentials"

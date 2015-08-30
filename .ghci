@@ -1,0 +1,39 @@
+:m - Prelude
+:m + GOA
+
+setLambdabotHome "/home/ilya/.cabal/bin/"
+
+:def bs        lambdabot "botsnack"
+:def pl        lambdabot "pl"
+:def unpl      lambdabot "unpl"
+:def redo      lambdabot "redo"
+:def undo      lambdabot "undo"
+:def index     lambdabot "index"
+:def docs      lambdabot "docs"
+:def instances lambdabot "instances"
+:def hoogle    lambdabot "hoogle"
+:def source    lambdabot "fptools"
+:def where     lambdabot "where"
+:def version   lambdabot "version"
+:def src       lambdabot "src"
+
+let ghciEscapeShellArg arg = "'" ++ concatMap (\x -> if x == '\'' then "'\"'\"'" else [x]) arg ++ "'"                             
+:def! search return . (":! hoogle --color --count=20 " ++) . ghciEscapeShellArg
+:def! doc return . (":! hoogle --info " ++) . ghciEscapeShellArg
+
+-- import qualified IPPrint
+-- import qualified Language.Haskell.HsColour as HsColour
+-- import qualified Language.Haskell.HsColour.Colourise as HsColour
+-- import qualified Language.Haskell.HsColour.Output as HsColour
+
+-- let myColourPrefs = HsColour.defaultColourPrefs { HsColour.conid = [HsColour.Foreground HsColour.Yellow, HsColour.Bold], HsColour.conop = [HsColour.Foreground HsColour.Yellow], HsColour.string = [HsColour.Foreground HsColour.Green], HsColour.char = [HsColour.Foreground HsColour.Cyan], HsColour.number = [HsColour.Foreground HsColour.Red, HsColour.Bold], HsColour.layout = [HsColour.Foreground HsColour.White], HsColour.keyglyph = [HsColour.Foreground HsColour.White] }
+
+-- let myPrint = putStrLn . HsColour.hscolour (HsColour.TTYg HsColour.XTerm256Compatible) myColourPrefs False False "" False . IPPrint.pshow
+
+-- :set -interactive-print=myPrint
+
+:set +t
+:set +m
+:set -XNoMonomorphismRestriction
+
+:set prompt "\ESC[32mλ→ \ESC[m"
