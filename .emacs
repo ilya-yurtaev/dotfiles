@@ -250,17 +250,3 @@
 (autoload 'scheme-smart-complete "scheme-complete" nil t)
 (eval-after-load 'scheme
   '(define-key scheme-mode-map "\t" 'scheme-complete-or-indent))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("37783713b151d949b0da66ff7cd8736dd0893089cbad12eb5a71f3a72e201b47" "0240d45644b370b0518e8407f5990a243c769fb0150a7e74297e6f7052a04a72" "9f3a4edb56d094366afed2a9ba3311bbced0f32ca44a47a765d8ef4ce5b8e4ea" "d9046dcd38624dbe0eb84605e77d165e24fdfca3a40c3b13f504728bab0bf99d" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "cb514b6181eace23ab029de9557059eae918e87948e81f48bf76b04c2c368531" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

@@ -68,15 +68,16 @@ def command(fn):
 @command_registry
 class App(object):
     default_cfg = "\n".join((
+        '.bashrc',
+        '.conkyrc',
         '.emacs',
         '.ghci',
         '.hgrc',
+        '.hgrc',
         '.irbrc',
+        '.jshintrc',
         '.profile',
         '.pylintrc',
-        '.jshintrc',
-        '.hgrc',
-        '.conkyrc',
         '.screenrc',
         '.tmux.conf',
         '.vimperatorrc',
@@ -162,7 +163,18 @@ class App(object):
             [unlink(self.mk_dotfile(x)) for x in _names]
         except OSError:
             pass
-        self.write_cfg("\n".join([n for n in self.cfg if n not in _names]))
+        self.write_cfg(
+            "\n".join([n for n in self.cfg.splitlines() if n not in _names]))
+
+    @command
+    def gen_cfg(self):
+        ignore = [
+            ".git", ".gitignore", "dotfiles.py", "dotfiles.pyc", "README",
+            ".dotconfig", ".ropeproject", "backups"]
+
+        self.write_cfg("\n".join(
+            [self.mk_dotfile(n).name for n in os.listdir(self.env.root)
+             if n not in ignore]))
 
     def backup(self):
         dotfiles = self.dotfiles(valid)
@@ -170,7 +182,8 @@ class App(object):
             dirname = _path(
                 self.env.backup_dir, datetime.strftime(datetime.now(), DT_FMT))
             os.makedirs(dirname)
-            [cp(d.src, _path(dirname, os.path.basename(d.src))) for d in dotfiles]
+            [cp(d.src, _path(dirname, os.path.basename(d.src)))
+             for d in dotfiles]
 
 
 def valid(dotfile):
@@ -245,5 +258,4 @@ def normalise(path):
 
 
 if __name__ == "__main__":
-    app = App()
-    app.dispatch()
+    App().dispatch()

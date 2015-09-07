@@ -104,6 +104,7 @@ alias runhaskell-sandbox="runhaskell -no-user-package-db -package-db .cabal-sand
 alias history="history | less"
 alias cabal_upgrade="cabal list --simple-output --installed | gawk '{print $1}' | uniq | xargs -I {} cabal install {} --reinstall"
 alias emacs="setsid emacs"
+alias emacsclient="setsid emacsclient"
 
 
 RPROMPT="\$(cabal_sandbox_info) $RPROMPT"
