@@ -153,7 +153,7 @@ set nocursorline
 set noerrorbells visualbell t_vb=
 set nojoinspaces
 set nosmartindent
-set nu 
+set nonumber
 set paste
 set shiftround
 set shiftwidth=2

@@ -110,7 +110,7 @@
   '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
 ;; complete
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 
 
 ;; evil
