@@ -12,3 +12,6 @@
 
 [include]
     path = "~/.git-credentials"
+
+[alias]
+	l = log --oneline --graph
