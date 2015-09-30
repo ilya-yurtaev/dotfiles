@@ -59,6 +59,9 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   let g:UltiSnipsJumpForwardTrigger="<c-j>"
   let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
+" Clojure
+Plug 'tpope/vim-fireplace'
+
 " Haskell
 Plug 'travitch/hasksyn'
 "Plug 'lukerandall/haskellmode-vim'

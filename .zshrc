@@ -88,6 +88,7 @@ alias gvim='gvim --remote-tab-silent'
 alias zshrc='vim ~/.zshrc'
 alias tmux='tmux attach || tmux -u'
 alias tmuxrc='vim ~/.tmux.conf'
+alias python="python -Wall"
 alias runserver="DJANGO_DEBUG=1 python manage.py runserver 127.0.0.1:8080"
 alias gruntserver="DJANGO_DEBUG=1 python manage.py gruntserver 127.0.0.1:8080"
 alias smtpserv="python -m smtpd --debug -n -c DebuggingServer localhost:1025"
