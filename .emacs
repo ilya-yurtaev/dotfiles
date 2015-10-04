@@ -144,6 +144,7 @@
 (require 'haskell-interactive-mode)
 (require 'haskell-process)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
 
 ;; snippets
 (yas-global-mode 1)
