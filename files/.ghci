@@ -1,3 +1,4 @@
+:set -XOverloadedStrings
 :m - Prelude
 :m + GOA
 

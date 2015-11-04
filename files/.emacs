@@ -1,8 +1,4 @@
-(require 'server)
-(or (server-running-p)
-    (server-start))
-
-(toggle-frame-fullscreen)
+;; (toggle-frame-fullscreen)
 
 (require 'package)
 (add-to-list 'package-archives
@@ -106,8 +102,8 @@
 
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+;(eval-after-load 'flycheck
+  ;'(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
 ;; complete
 ;; (add-hook 'after-init-hook 'global-company-mode)
@@ -141,10 +137,10 @@
 
 ;; haskell
 ;; (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-(require 'haskell-interactive-mode)
-(require 'haskell-process)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
+;(require 'haskell-interactive-mode)
+;(require 'haskell-process)
+;(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+;(define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
 
 ;; snippets
 (yas-global-mode 1)

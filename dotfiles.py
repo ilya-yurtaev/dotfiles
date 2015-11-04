@@ -73,7 +73,6 @@ class App(object):
         '.emacs',
         '.ghci',
         '.hgrc',
-        '.hgrc',
         '.irbrc',
         '.jshintrc',
         '.profile',
@@ -84,6 +83,10 @@ class App(object):
         '.vimrc',
         '.zshrc',
     ))
+
+    @command
+    def test(app, *args):
+        print app.dotfiles(not_installed);
 
     def __init__(self):
         home = os.environ.get('HOME')
@@ -111,16 +114,16 @@ class App(object):
 
     def mk_dotfile(self, path):
         src = _path(self.env.home, normalise(path))
-        dst = src.replace(self.env.home, self.env.root)
+        dst = src.replace(self.env.home, _path(self.env.root, "files"))
         return Dotfile(path, src, dst)
 
     def dotfiles(self, fltr):
-        if not getattr(self, "_dotfiles", None):
-            self._dotfiles = map(
+        if not getattr(self, "_all_dotfiles", None):
+            self._all_dotfiles = map(
                 self.mk_dotfile,
                 set(p for p in self.cfg.splitlines() if p)
             )
-        return filter(fltr, self._dotfiles)
+        return filter(fltr, self._all_dotfiles)
 
     @command
     def install(self):
@@ -168,12 +171,8 @@ class App(object):
 
     @command
     def gen_cfg(self):
-        ignore = [
-            ".git", ".gitignore", "dotfiles.py", "dotfiles.pyc", "README",
-            ".dotconfig", ".ropeproject", "backups"]
-
         self.write_cfg("\n".join(
-            [self.mk_dotfile(n).name for n in os.listdir(self.env.root)
+            [self.mk_dotfile(n).name for n in os.listdir(_path(self.env.root, "files"))
              if n not in ignore]))
 
     def backup(self):
@@ -197,6 +196,14 @@ def pending(dotfile):
     ))
 
 
+def not_installed(dotfile):
+    return _check_lazy(dotfile, all, (
+        lambda x: not valid(x),
+        lambda x: not linked(x),
+        lambda x: _exists(x.dst),
+    ))
+
+
 def tracked(dotfile):
     return _check_lazy(dotfile, all, (
         valid,
@@ -207,7 +214,7 @@ def tracked(dotfile):
 def linked(dotfile):
     try:
         return os.readlink(dotfile.src) == dotfile.dst and _exists(dotfile.dst)
-    except OSError, e:
+    except OSError as e:
         return False
 
 

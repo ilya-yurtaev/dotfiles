@@ -100,7 +100,7 @@ text_buffer_size 2048
 # Gap between borders of screen and text
 # same thing as passing -x at command line
 gap_x 25 
-gap_y 25 
+gap_y 50 
 
 # Subtract file system buffers from used memory?
 no_buffers yes
@@ -154,7 +154,7 @@ ${color lightgrey}Uptime:$color $uptime ${color lightgrey}- Load:$color $loadavg
 ${color lightgrey}CPU:   ${color #ff8800} ${cpu cpu0}% (${acpitemp}°C) ${cpubar cpu0}
 ${color red}${cpugraph 23 ff8800 ff3517}
 ${color lightgrey}RAM:   $mem/$memmax ${color #558800}$memperc% ${membar}
-${color lightgrey}Battery: ${voffset 2} ${battery_bar 5,150 BAT1} ${battery_percent BAT1}%
+${color lightgrey}Battery: ${color red}${alignr} ${battery_percent BAT0}% ${battery_bar 5,150 BAT0}
 ${color lightgrey}/:     ${fs_free /}/${fs_size /}  ${color #add8e6} ${fs_bar /} 
 
 ${color lightgrey}Processes: $color $processes  ${color grey}Running:$color $running_processes

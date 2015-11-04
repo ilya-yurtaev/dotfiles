@@ -20,6 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-PATH=$PATH:$HOME/bin:$HOME/.cabal/bin:$PATH:/sbin:/usr/sbin:$HOME/.rbenv/bin:/usr/node_modules/:$HOME/.local/bin
-PATH=$PATH:/opt/cabal/1.22/bin:/opt/ghc/7.10.2/bin

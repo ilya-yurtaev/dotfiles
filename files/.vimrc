@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
-Plug 'Valloric/YouCompleteMe', {'do': './install.sh --clang-completer'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
   let g:ycm_autoclose_preview_window_after_completion=1
 
 Plug 'godlygeek/tabular'
@@ -201,7 +201,7 @@ if has("gui_running")
   set cursorline
   set guitablabel=%t
   let g:clipbrdDefaultReg = '+'
-  colors wombat_anatolych
+  colors desert
 
   " ms® windows™ specific
   if has("gui_win32") 

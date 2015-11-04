@@ -1,0 +1,12 @@
+# This file contains default non-project-specific settings for 'stack', used
+# in all projects.  For more information about stack's configuration, see
+# https://github.com/commercialhaskell/stack/blob/release/doc/yaml_configuration.md
+#
+templates:
+  params:
+    author-email: ilya.yurtaev@gmail.com
+    author-name: Ilya Yurtaev
+    # category: value
+    # copyright: value
+    github-username: ilya-yurtaev
+

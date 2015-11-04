@@ -17,7 +17,7 @@ ZSH_THEME="blinks"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
+#COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(bundler cabal composer debian django extract fabric python pip vi-mode mercurial svn rake rbenv ruby npm)
@@ -78,7 +78,7 @@ alias :r="source ~/.zshrc"
 alias :q="exit"
 alias apt="sudo aptitude"
 alias cls="clear"
-alias emacs="emacs -mm"
+alias emacs='setsid emacsclient "$@" -a ""'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 alias ll='ls $LS_OPTIONS -l'
 alias l='ls $LS_OPTIONS -lA'
@@ -104,14 +104,13 @@ alias ghci-sandbox="ghci -no-user-package-db -package-db .cabal-sandbox/*-packag
 alias runhaskell-sandbox="runhaskell -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
 alias history="history | less"
 alias cabal_upgrade="cabal list --simple-output --installed | gawk '{print $1}' | uniq | xargs -I {} cabal install {} --reinstall"
-alias emacs="setsid emacs"
-alias emacsclient="setsid emacsclient"
 
 
-RPROMPT="\$(cabal_sandbox_info) $RPROMPT"
 export PS2='%_>'
 
 export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
+
+export PATH="$HOME/.local/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
