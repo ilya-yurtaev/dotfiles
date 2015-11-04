@@ -84,10 +84,6 @@ class App(object):
         '.zshrc',
     ))
 
-    @command
-    def test(app, *args):
-        print app.dotfiles(not_installed);
-
     def __init__(self):
         home = os.environ.get('HOME')
         root = _path(home, ".dotfiles")
@@ -186,21 +182,13 @@ class App(object):
 
 
 def valid(dotfile):
-    return _exists(dotfile.src)
+    return _exists(dotfile.src) or _exists(dotfile.dst)
 
 
 def pending(dotfile):
     return _check_lazy(dotfile, all, (
         lambda x: not tracked(x),
         valid,
-    ))
-
-
-def not_installed(dotfile):
-    return _check_lazy(dotfile, all, (
-        lambda x: not valid(x),
-        lambda x: not linked(x),
-        lambda x: _exists(x.dst),
     ))
 
 
