@@ -20,7 +20,7 @@ ZSH_THEME="blinks"
 #COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(bundler cabal composer debian django extract fabric python pip vi-mode mercurial svn rake rbenv ruby npm)
+plugins=(extract vi-mode rbenv npm)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -158,18 +158,24 @@ class App(object):
     @command
     def forget(self, *names):
         _names = [normalise(n) for n in names]
+
         try:
             [unlink(self.mk_dotfile(x)) for x in _names]
         except OSError:
             pass
+        
         self.write_cfg(
-            "\n".join([n for n in self.cfg.splitlines() if n not in _names]))
+            "\n".join(
+                [n for n in self.cfg.splitlines() if n not in _names]
+            ))
 
     @command
     def gen_cfg(self):
         self.write_cfg("\n".join(
-            [self.mk_dotfile(n).name for n in os.listdir(_path(self.env.root, "files"))
-             if n not in ignore]))
+            [self.mk_dotfile(n).name for n in os.listdir(
+                _path(self.env.root, "files")
+            )]
+        ))
 
     def backup(self):
         dotfiles = self.dotfiles(valid)

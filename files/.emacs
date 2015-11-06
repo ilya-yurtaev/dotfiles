@@ -23,6 +23,13 @@
 (ido-everywhere 1)
 (flx-ido-mode 1)
 (setq ido-enable-flex-matching 1)
+(setq vc-follow-symlinks nil)
+
+;; recent files
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 50)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;; look
 (setq font-lock-maximum-decoration t)
