@@ -1,3 +1,4 @@
+(server-start)
 ;; (toggle-frame-fullscreen)
 
 (require 'package)

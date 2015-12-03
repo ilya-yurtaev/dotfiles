@@ -24,7 +24,7 @@ xftfont Bitstream Vera Sans Mono:size=9
 #xftfont Consolas:size=10
 
 # Text alpha when using Xft
-xftalpha 0.5
+xftalpha 0.1
 
 # Print everything to stdout?
 # out_to_console no
@@ -92,8 +92,8 @@ alignment top_right
 #alignment bottom_left
 #alignment bottom_right
 #alignment none
-maximum_width 320
-minimum_size 320
+maximum_width 350
+minimum_size 350
 #text_width 300
 
 text_buffer_size 2048

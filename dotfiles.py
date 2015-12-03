@@ -17,7 +17,7 @@ _path = os.path.join
 _exists = os.path.exists
 
 
-Env = namedtuple('Env', ['home', 'root', 'cfg_path', 'backup_dir'])
+Env = namedtuple('Env', ['home', 'root', 'cfg_path', 'backup_dir', 'files_dir'])
 Dotfile = namedtuple('Dotfile', ['name', 'src', 'dst'])
 
 
@@ -42,7 +42,7 @@ def command_registry(cls):
 
         getattr(app, cmd if cmd in app.registry.keys() else 'help')(*params)
 
-    def help(app, *args):
+    def _help(app, *args):
         print("Available commands:\n")
         print("\t" + "\n\t".join(
             ["\t".join((k, v or "")) for k, v in app.registry.iteritems()]
@@ -50,7 +50,7 @@ def command_registry(cls):
 
     cls.registry = registry
     cls.dispatch = dispatch
-    cls.help = help
+    cls.help = _help
 
     return cls
 
@@ -86,13 +86,16 @@ class App(object):
 
     def __init__(self):
         home = os.environ.get('HOME')
-        root = _path(home, ".dotfiles")
+        root = os.path.dirname(os.path.abspath(__file__))
+
         self.env = Env(
             home,
             root,
             _path(root, '.dotconfig'),
             _path(root, 'backups'),
+            _path(root, 'files'),
         )
+
         self.cfg = self.read_cfg()
 
     def read_cfg(self):
@@ -109,8 +112,8 @@ class App(object):
             return cfg
 
     def mk_dotfile(self, path):
-        src = _path(self.env.home, normalise(path))
-        dst = src.replace(self.env.home, _path(self.env.root, "files"))
+        src = _path(self.env.home, normalize(path))
+        dst = src.replace(self.env.home, self.env.files_dir)
         return Dotfile(path, src, dst)
 
     def dotfiles(self, fltr):
@@ -136,14 +139,17 @@ class App(object):
         existing_paths = [d.src for d in self.dotfiles(_id)]
         names_to_add = set(
             n for n in names
-            if normalise(n) not in existing_paths
-            and _exists(normalise(n))
+            if normalize(n) not in existing_paths
+            and _exists(normalize(n))
         )
 
-        self.write_cfg("\n".join(
-            names_to_add.union((d.name for d in self.dotfiles(_id)))
-        ))
-        [link(self.mk_dotfile(n)) for n in names_to_add]
+        if names_to_add:
+            self.write_cfg("\n".join(
+                names_to_add.union((d.name for d in self.dotfiles(_id)))
+            ))
+            [link(self.mk_dotfile(n)) for n in names_to_add]
+        else:
+            print("No valid files found: {}".format(" ".join(names)))
 
     @command
     def status(self):
@@ -157,7 +163,7 @@ class App(object):
 
     @command
     def forget(self, *names):
-        _names = [normalise(n) for n in names]
+        _names = [normalize(n) for n in names]
 
         try:
             [unlink(self.mk_dotfile(x)) for x in _names]
@@ -171,10 +177,12 @@ class App(object):
 
     @command
     def gen_cfg(self):
+
+        def _walk(d, _, files):
+            return "\n".join([_path(d, f).replace(self.env.files_dir, "~") for f in files])
+        
         self.write_cfg("\n".join(
-            [self.mk_dotfile(n).name for n in os.listdir(
-                _path(self.env.root, "files")
-            )]
+            [_walk(*p) for p in os.walk(self.env.files_dir) if p]
         ))
 
     def backup(self):
@@ -186,6 +194,8 @@ class App(object):
             [cp(d.src, _path(dirname, os.path.basename(d.src)))
              for d in dotfiles]
 
+
+# filters -------------------------------------------------------
 
 def valid(dotfile):
     return _exists(dotfile.src) or _exists(dotfile.dst)
@@ -208,9 +218,11 @@ def tracked(dotfile):
 def linked(dotfile):
     try:
         return os.readlink(dotfile.src) == dotfile.dst and _exists(dotfile.dst)
-    except OSError as e:
+    except OSError:
         return False
 
+
+# utils -------------------------------------------------------
 
 def _check_lazy(dotfile, method, checks):
     return method((check(dotfile) for check in checks))
@@ -254,7 +266,7 @@ def mv(src, dst):
     LOG.info("%s moved to %s", src, dst)
 
 
-def normalise(path):
+def normalize(path):
     return os.path.expanduser(path.strip("*").rstrip("/"))
 
 
