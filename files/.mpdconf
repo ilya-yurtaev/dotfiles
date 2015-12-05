@@ -1,9 +1,9 @@
-music_directory		        "~/Music"
-playlist_directory		    "~/Music/playlists"
-db_file			              "~/.mpd/tag_cache"
-pid_file			            "~/.mpd/pid"
-state_file			          "~/.mpd/state"
-log_file			            "~/.mpd/mpd.log"
+music_directory           "~/Music"
+playlist_directory        "~/Music/playlists"
+db_file                   "~/.mpd/tag_cache"
+pid_file                  "~/.mpd/pid"
+state_file                "~/.mpd/state"
+log_file                  "~/.mpd/mpd.log"
 bind_to_address           "localhost"
 port                      "6600"
 follow_inside_symlinks    "yes"
@@ -14,6 +14,6 @@ input {
 }
 
 audio_output {
-	type            "pulse"
-	name            "My Output"
+  type            "pulse"
+  name            "My Output"
 }
