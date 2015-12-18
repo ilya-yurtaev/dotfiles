@@ -1,5 +1,5 @@
 (server-start)
-;; (toggle-frame-fullscreen)
+(toggle-frame-maximized)
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -110,11 +110,10 @@
 
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
-;(eval-after-load 'flycheck
-  ;'(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+
 
 ;; complete
-;; (add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 
 
 ;; evil
@@ -144,11 +143,11 @@
 (global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
 
 ;; haskell
-;; (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 ;(require 'haskell-interactive-mode)
 ;(require 'haskell-process)
-;(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-;(define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+;; (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
 
 ;; snippets
 (yas-global-mode 1)

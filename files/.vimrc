@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-  let g:ycm_autoclose_preview_window_after_completion=1
+  let g:ycm_autocmlose_preview_window_after_completion=1
 
 Plug 'godlygeek/tabular'
 Plug 'mattn/gist-vim'
@@ -19,6 +19,8 @@ Plug 'tpope/vim-surround'
 
 " colors
 "Plug 'wombat256.vim'
+
+Plug 'sickill/vim-monokai'
 
 Plug 'kien/ctrlp.vim'
   let g:ctrlp_cmd = 'CtrlPMRU'
