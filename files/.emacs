@@ -33,6 +33,87 @@
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;; look
+(setq ns-pop-up-frames nil)
+(setq font-lock-maximum-decoration t)
+(setq frame-background-mode 'dark)
+(set-frame-font "Ubuntu Mono-14")
+(setq inhibit-startup-message t)
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
+(menu-bar-mode -1)
+(global-hl-line-mode)
+(global-auto-revert-mode 1)
+(set-fringe-mode 0)
+(setq visible-bell nil)
+(powerline-default-theme)
+(set-face-attribute 'mode-line-inactive nil
+                    :underline t
+                    :background (face-background 'default))
+(global-set-key (kbd "S-M-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-M-<down>") 'shrink-window)
+(global-set-key (kbd "S-M-<up>") 'enlarge-window)
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+
+
+;; ido
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching 1)
+(setq vc-follow-symlinks nil)
+
+;; recent files
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 50)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;; look
+(setq font-lock-maximum-decoration t)
+(setq frame-background-mode 'dark)
+(set-frame-font "Ubuntu Mono-14")
+(setq inhibit-startup-message t)
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
+(menu-bar-mode -1)
+(global-hl-line-mode)
+(global-auto-revert-mode 1)
+(set-fringe-mode 0)
+(setq visible-bell nil)
+(powerline-default-theme)
+(set-face-attribute 'mode-line-inactive nil
+                    :underline t
+                    :background (face-background 'default))
+(global-set-key (kbd "S-M-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-M-<down>") 'shrink-window)
+(global-set-key (kbd "S-M-<up>") 'enlarge-window)
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+
+
+;; ido
+(ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching 1)
+(setq vc-follow-symlinks nil)
+
+;; recent files
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 50)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;; look
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
 (set-frame-font "Ubuntu Mono-14")
@@ -113,7 +194,10 @@
 
 
 ;; complete
+(require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'company-backends 'company-ghc)
+(custom-set-variables '(company-ghc-show-info t))
 
 
 ;; evil
@@ -147,9 +231,11 @@
 ;(require 'haskell-process)
 (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (custom-set-variables
   '(haskell-process-suggest-remove-import-lines t)
   '(haskell-process-auto-import-loaded-modules t)
+  '(haskell-process-type 'stack-ghci)
   '(haskell-process-log t))
 (eval-after-load 'haskell-mode '(progn
   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
@@ -158,13 +244,13 @@
   (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
   (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
   (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
+  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
   (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
 (eval-after-load 'haskell-cabal '(progn
   (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
   (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
-(define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
 
 ;; snippets
 (yas-global-mode 1)
@@ -271,3 +357,5 @@
 (autoload 'scheme-smart-complete "scheme-complete" nil t)
 (eval-after-load 'scheme
   '(define-key scheme-mode-map "\t" 'scheme-complete-or-indent))
+
+(set-face-italic 'italic nil)
