@@ -33,7 +33,7 @@
 (global-set-key (kbd "S-M-<up>") 'enlarge-window)
 (setq linum-format " %d ")
 (setq-default left-margin-width 1 right-margin-width 1)
- (set-window-buffer nil (current-buffer))
+(set-window-buffer nil (current-buffer))
 
 
 ;; tabs and whitespaces
@@ -101,6 +101,7 @@
 ;; recent files
 
 ;; flycheck
+(require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; neotree
@@ -126,24 +127,53 @@
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 ;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (custom-set-variables
-  '(haskell-process-suggest-remove-import-lines t)
-  '(haskell-process-auto-import-loaded-modules t)
-  '(haskell-process-type 'stack-ghci)
-  '(haskell-process-log t))
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-type 'stack-ghci)
+ '(haskell-process-log t))
 (eval-after-load 'haskell-mode '(progn
-  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
-  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
+                                  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+                                  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+                                  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+                                  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+                                  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+                                  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
+                                  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
+                                  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
 (eval-after-load 'haskell-cabal '(progn
-  (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+                                   (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+                                   (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+                                   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+                                   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+
+;; javascript
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(setq js-indent-level 2)
+(setq js2-basic-offset 2)
+(setq js2-bounce-indent-p t)
+(add-hook 'js-mode-hook
+          (function (lambda ()
+                      (setq evil-shift-width 2))))
+
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)))
+
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+(setq-default flycheck-temp-prefix ".flycheck")
+
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(json-jsonlist)))
+
+;; python
+(add-hook 'python-mode-hook
+          (function (lambda ()
+                      (setq python-indent 4)
+                      (setq evil-shift-width 4))))
 
 ;; keys
 (global-set-key (kbd "<f2>") 'save-buffer)
