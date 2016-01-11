@@ -31,9 +31,10 @@
 (global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-M-<down>") 'shrink-window)
 (global-set-key (kbd "S-M-<up>") 'enlarge-window)
-
-(require 'linum)
 (setq linum-format " %d ")
+(setq-default left-margin-width 1 right-margin-width 1)
+ (set-window-buffer nil (current-buffer))
+
 
 ;; tabs and whitespaces
 (setq-default indent-tabs-mode nil)
@@ -43,8 +44,8 @@
             (delete-trailing-whitespace)
             nil))
 
-(setq-default left-margin-width 1 right-margin-width 1)
- (set-window-buffer nil (current-buffer))
+
+(autopair-global-mode)
 
 ;; backups, locks and tmp
 (setq backup-directory-alist
@@ -88,15 +89,16 @@
 (setq ido-enable-flex-matching 1)
 (setq vc-follow-symlinks nil)
 
+;; helm
+(helm-mode 1)
+(global-set-key "\C-x\ \C-r" 'helm-recentf)
+(global-set-key "\C-x\ \C-f" 'helm-find-files)
+
 ;; projectile
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 
 ;; recent files
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-items 50)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
