@@ -1,5 +1,7 @@
 ~/.conkyrc
-~/.emacs
+~/.emacs.d/Cask
+~/.emacs.d/Makefile
+~/.emacs.d/init.el
 ~/.ghci
 ~/.gitconfig
 ~/.hgrc

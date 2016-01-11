@@ -111,6 +111,7 @@ export PS2='%_>'
 export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cask/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
