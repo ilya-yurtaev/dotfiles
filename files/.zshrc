@@ -20,7 +20,7 @@ ZSH_THEME="blinks"
 #COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(extract vi-mode rbenv npm)
+plugins=(composer emacs extract npm nvm pip rbenv stack vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,6 +115,3 @@ export PATH="$HOME/.cask/bin:$PATH"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-export NVM_DIR="/home/ilya/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

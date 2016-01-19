@@ -11,6 +11,7 @@
 
 ;; look
 (load-theme 'monokai t)
+;;(load-theme 'moe-dark t)
 (powerline-default-theme)
 (setq ns-pop-up-frames nil)
 (setq font-lock-maximum-decoration t)
@@ -27,10 +28,6 @@
 (set-face-attribute 'mode-line-inactive nil
                     :underline t
                     :background (face-background 'default))
-(global-set-key (kbd "S-M-<left>") 'shrink-window-horizontally)
-(global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "S-M-<down>") 'shrink-window)
-(global-set-key (kbd "S-M-<up>") 'enlarge-window)
 (setq linum-format " %d ")
 (setq-default left-margin-width 1 right-margin-width 1)
 (set-window-buffer nil (current-buffer))
@@ -97,6 +94,8 @@
 ;; projectile
 (projectile-global-mode)
 (setq projectile-enable-caching t)
+(setq projectile-switch-project-action 'neotree-projectile-action)
+
 
 ;; recent files
 
@@ -177,3 +176,7 @@
 
 ;; keys
 (global-set-key (kbd "<f2>") 'save-buffer)
+(global-set-key (kbd "S-M-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-M-<down>") 'shrink-window)
+(global-set-key (kbd "S-M-<up>") 'enlarge-window)
