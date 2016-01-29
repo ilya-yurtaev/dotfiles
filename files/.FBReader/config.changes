@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <group name="Indicator">
+    <option name="Type"/>
+  </group>
+  <group name="InfoDialog">
+    <option name="SelectedTab" value="Common" category="ui"/>
+    <option name="Width" value="408" category="ui"/>
+  </group>
+  <group name="LastState">
+    <option name="Paragraph" value="124" category="state"/>
+    <option name="PositionInBuffer" value="2" category="state"/>
+    <option name="Valid" value="true" category="state"/>
+    <option name="Char"/>
+    <option name="Word"/>
+  </group>
+  <group name="OpenFileDialog">
+    <option name="Directory" value="/home/ilya/Dropbox/books" category="ui"/>
+  </group>
+  <group name="Options">
+    <option name="LeftMargin" value="150" category="ui"/>
+    <option name="RightMargin" value="150" category="ui"/>
+    <option name="AutoHyphenation"/>
+  </group>
+  <group name="OptionsDialog">
+    <option name="SelectedTab" value="Indicator" category="ui"/>
+  </group>
+  <group name="Style">
+    <option name="Base:alignment" value="1" category="ui"/>
+    <option name="Base:fontSize" value="20" category="ui"/>
+  </group>
+</config>

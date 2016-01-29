@@ -42,7 +42,7 @@
             nil))
 
 
-(autopair-global-mode)
+;; (autopair-global-mode)
 
 ;; backups, locks and tmp
 (setq backup-directory-alist
@@ -122,9 +122,15 @@
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-mode))
 
 ;; haskell
-;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(require 'haskell-process)
+(require 'haskell-interactive-mode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
-;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
 (custom-set-variables
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-auto-import-loaded-modules t)
