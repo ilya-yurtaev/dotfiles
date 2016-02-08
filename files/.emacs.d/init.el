@@ -9,11 +9,13 @@
 (server-start)
 (toggle-frame-maximized)
 
+(setq ns-pop-up-frames nil)
+(add-to-list 'display-buffer-alist
+             '("^[^\\*].*[^\\*]$" display-buffer-same-window) t)
 ;; look
 (load-theme 'monokai t)
 ;;(load-theme 'moe-dark t)
 (powerline-default-theme)
-(setq ns-pop-up-frames nil)
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
 (set-frame-font "Ubuntu Mono-14")
@@ -186,3 +188,6 @@
 (global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-M-<down>") 'shrink-window)
 (global-set-key (kbd "S-M-<up>") 'enlarge-window)
+
+
+(defalias 'yes-or-no-p 'y-or-n-p)

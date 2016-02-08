@@ -8,11 +8,11 @@
     <option name="Width" value="408" category="ui"/>
   </group>
   <group name="LastState">
-    <option name="Paragraph" value="124" category="state"/>
-    <option name="PositionInBuffer" value="2" category="state"/>
+    <option name="Char" value="2" category="state"/>
+    <option name="Paragraph" value="870" category="state"/>
+    <option name="PositionInBuffer" value="4" category="state"/>
     <option name="Valid" value="true" category="state"/>
-    <option name="Char"/>
-    <option name="Word"/>
+    <option name="Word" value="61" category="state"/>
   </group>
   <group name="OpenFileDialog">
     <option name="Directory" value="/home/ilya/Dropbox/books" category="ui"/>
@@ -23,7 +23,11 @@
     <option name="AutoHyphenation"/>
   </group>
   <group name="OptionsDialog">
-    <option name="SelectedTab" value="Indicator" category="ui"/>
+    <option name="SelectedTab" value="Selection" category="ui"/>
+    <option name="Width" value="539" category="ui"/>
+  </group>
+  <group name="State">
+    <option name="Angle"/>
   </group>
   <group name="Style">
     <option name="Base:alignment" value="1" category="ui"/>
