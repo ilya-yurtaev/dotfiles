@@ -44,7 +44,7 @@
             nil))
 
 
-;; (autopair-global-mode)
+(paredit-everywhere-mode)
 
 ;; backups, locks and tmp
 (setq backup-directory-alist

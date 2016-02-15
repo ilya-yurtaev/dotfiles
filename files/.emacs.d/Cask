@@ -3,7 +3,6 @@
 (source melpa)
 (source org)
 
-(depends-on "autopair")
 (depends-on "bind-key")
 (depends-on "cask")
 (depends-on "cider")
@@ -49,6 +48,7 @@
 (depends-on "neotree")
 (depends-on "nyan-mode")
 (depends-on "pallet")
+(depends-on "paredit-everywhere")
 (depends-on "popwin")
 (depends-on "powerline")
 (depends-on "prodigy")
