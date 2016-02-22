@@ -118,7 +118,19 @@
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (add-to-list 'company-backends 'company-ghc)
-(custom-set-variables '(company-ghc-show-info t))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-ghc-show-info t)
+ '(custom-safe-themes
+   (quote
+    ("38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote stack-ghci)))
 
 ;; config types
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-mode))
@@ -133,11 +145,7 @@
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
-(custom-set-variables
- '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-type 'stack-ghci)
- '(haskell-process-log t))
+
 (eval-after-load 'haskell-mode '(progn
                                   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
                                   (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
@@ -152,6 +160,9 @@
                                    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
                                    (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+;; lisp
+(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq slime-contribs '(slime-fancy))
 
 ;; javascript
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -191,3 +202,9 @@
 
 
 (defalias 'yes-or-no-p 'y-or-n-p)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
