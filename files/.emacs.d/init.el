@@ -34,6 +34,10 @@
 (setq-default left-margin-width 1 right-margin-width 1)
 (set-window-buffer nil (current-buffer))
 
+;; shell
+(setq system-uses-terminfo nil)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 
 ;; tabs and whitespaces
 (setq-default indent-tabs-mode nil)
@@ -126,7 +130,7 @@
  '(company-ghc-show-info t)
  '(custom-safe-themes
    (quote
-    ("38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+    ("38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "868f73b5cf78e72ca2402e1d48675e49cc9a9619c5544af7bf216515d22b58e7" "b85fc9f122202c71b9884c5aff428eb81b99d25d619ee6fde7f3016e08515f07" default)))
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)

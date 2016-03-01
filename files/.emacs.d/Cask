@@ -28,6 +28,7 @@
 (depends-on "flycheck-ghcmod")
 (depends-on "geiser")
 (depends-on "ghc-mod")
+(depends-on "go-mode")
 (depends-on "haskell-mode")
 (depends-on "helm")
 (depends-on "helm-ghc")
