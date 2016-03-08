@@ -49,6 +49,12 @@
 
 
 (paredit-everywhere-mode)
+(dolist (mode '(ruby espresso js2))
+  (add-hook (intern (format "%s-mode-hook" mode))
+            '(lambda ()
+               (add-to-list (make-local-variable 'paredit-space-for-delimiter-predicates)
+                            (lambda (_ _) nil))
+               (enable-paredit-mode))))
 
 ;; backups, locks and tmp
 (setq backup-directory-alist
