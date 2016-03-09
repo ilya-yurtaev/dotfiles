@@ -11,6 +11,7 @@
 (depends-on "company-ghci")
 (depends-on "dash")
 (depends-on "drag-stuff")
+(depends-on "elm-mode")
 (depends-on "emmet-mode")
 (depends-on "erlang")
 (depends-on "evil")
