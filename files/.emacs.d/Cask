@@ -9,6 +9,7 @@
 (depends-on "company")
 (depends-on "company-ghc")
 (depends-on "company-ghci")
+(depends-on "company-jedi")
 (depends-on "dash")
 (depends-on "drag-stuff")
 (depends-on "elm-mode")

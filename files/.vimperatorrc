@@ -28,7 +28,7 @@ map > :fo<cr>
 map < :ba<cr>
 "map ,ie :open chrome://ietab/content/reloaded.html?url=encodeURIComponent(liberator.modules.buffer.URL)<cr>
 
-autocmd LocationChange .* :js modes.passAllKeys = /mail\.google\.com|www\.artlebedev\.ru|www.\.google\.ru\/reader|www\.google\.com\/reader\/view|docker\.com\/tryit/.test(buffer.URL)
+autocmd LocationChange .* :js modes.passAllKeys = /newsblur\.com|mail\.google\.com|www\.artlebedev\.ru|www.\.google\.ru\/reader|www\.google\.com\/reader\/view|docker\.com\/tryit/.test(buffer.URL)
 
 
 
