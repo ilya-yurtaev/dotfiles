@@ -1,5 +1,3 @@
-"2009-05-15
-
 se focuscontent 
 se titlestring="Firefox — Vimperator"
 "se fullscreen on
@@ -26,77 +24,5 @@ noremap L gt
 
 map > :fo<cr>
 map < :ba<cr>
-"map ,ie :open chrome://ietab/content/reloaded.html?url=encodeURIComponent(liberator.modules.buffer.URL)<cr>
 
 autocmd LocationChange .* :js modes.passAllKeys = /newsblur\.com|mail\.google\.com|www\.artlebedev\.ru|www.\.google\.ru\/reader|www\.google\.com\/reader\/view|docker\.com\/tryit/.test(buffer.URL)
-
-
-
-javascript <<EOF
-
-(function(){
-
-    var btns = ["feed-button", "ffvkontaktemusic-button"];
-
-    function gid(id){return document.getElementById(id) || null}
-
-    function AddToStatusline(id, i){
-        if(!gid(id)) return;
-        var button = document.createElement("statusbarpanel");
-        var clone = gid(id)
-        button.appendChild(clone);
-        button.setAttribute("style", "padding:0;margin:0;max-height:16px;line-height:16px;max-width:24px;overflow:hidden;");
-        clone.setAttribute("style", "padding:0;margin:0;max-height:16px;line-height:16px;max-width:24px;overflow:hidden;");
-        gid("status-bar").insertBefore(button, gid("liberator-statusline").nextSibling);
-    }
-
-    btns.forEach(function(el,i){AddToStatusline(el,i);})
-
-
-// adds feed for Google reader command 
-commands.addUserCommand(
-    ['feedgooglereader', 'fgr'],
-    'feed current site URL to Google Reader',
-    function () {
-        let doc = content.document;
-        let b = doc.body;
-        let GR________bookmarklet_domain = 'http://www.google.com';
-        if (b && ! doc.xmlVersion){
-            let z = doc.createElement('script');
-            z.src = 'http://www.google.com/reader/ui/subscribe-bookmarklet.js';
-            z.type = 'text/javascript';
-            b.appendChild(z);
-        }
-        else {
-            liberator.open(
-                'http://www.google.com/reader/view/feed/' + encodeURIComponent(liberator.modules.buffer.URL),
-                (options['newtab'] && options.get('newtab').has('all'))
-                    ? liberator.NEW_TAB
-                    : liberator.CURRENT_TAB
-            );
-        }
-    },
-    {}
-);
-
-
-// set favicon in statusline
-    var setFavicon = function(){
-        var p = document.getElementById('page-proxy-favicon-clone');
-        var b = document.getElementById('page-proxy-favicon');
-        if (!p) {
-            p = document.createElement('statusbarpanel');
-            p.setAttribute('id','page-proxy-favicon-clone');
-            p.appendChild(b.cloneNode(true));
-            document.getElementById('status-bar').insertBefore(p,document.getElementById('liberator-statusline'));
-        }
-        if (p.childNodes.length > 0) {
-            var node = p.childNodes.item(0);
-            node.setAttribute('src', b.getAttribute('src'));
-        }
-    }
-    getBrowser().addEventListener("load", function() setFavicon() , true);
-    getBrowser().addEventListener("TabSelect", function() setFavicon() , true);
-})();
-
-EOF
