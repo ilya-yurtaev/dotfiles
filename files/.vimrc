@@ -164,7 +164,7 @@ set shiftround
 set shiftwidth=2
 set shm+=AI
 set showcmd
-set showtabline=2
+set showtabline=0
 set smarttab
 set softtabstop=2
 set spelllang=en_us,ru_ru
@@ -179,7 +179,7 @@ set wrap
 
 " GUI
 "set formatoptions=tcB
-set go=eaci " e - gui tabs, c - console dialogs
+set go=aci " e - gui tabs, c - console dialogs
 autocmd GUIEnter * set visualbell t_vb=
 
 set laststatus=2
