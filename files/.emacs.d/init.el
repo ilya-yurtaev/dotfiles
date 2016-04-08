@@ -16,6 +16,7 @@
 (load-theme 'monokai t)
 ;;(load-theme 'moe-dark t)
 (powerline-default-theme)
+(setq-default mode-line-format nil)
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
 (set-frame-font "Ubuntu Mono-14")
@@ -33,6 +34,7 @@
 (setq linum-format " %d ")
 (setq-default left-margin-width 1 right-margin-width 1)
 (set-window-buffer nil (current-buffer))
+(setq initial-scratch-message "")
 
 ;; shell
 (setq system-uses-terminfo nil)
