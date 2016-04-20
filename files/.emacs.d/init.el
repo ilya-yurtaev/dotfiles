@@ -16,7 +16,7 @@
 (load-theme 'monokai t)
 ;;(load-theme 'moe-dark t)
 (powerline-default-theme)
-(setq-default mode-line-format nil)
+;; (setq-default mode-line-format nil)
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
 (set-frame-font "Ubuntu Mono-14")
