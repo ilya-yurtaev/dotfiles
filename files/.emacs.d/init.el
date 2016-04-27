@@ -172,6 +172,9 @@
                                    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
                                    (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+(require 'shm-case-split)
+(define-key shm-map (kbd "C-c C-s") 'shm/case-split)
+
 ;; lisp
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq slime-contribs '(slime-fancy))

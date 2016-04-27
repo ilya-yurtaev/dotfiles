@@ -66,7 +66,7 @@ Plug 'travitch/hasksyn'
   "au Bufenter *.hs compiler ghc
   "let g:haddock_browser="/usr/bin/firefox"
 "Plug 'bitc/vim-hdevtools'
-"Plug 'dag/vim2hs'
+Plug 'dag/vim2hs'
 Plug 'eagletmt/ghcmod-vim'
   let g:ghcmod_use_basedir="/home/ilya/.local/bin"
 

@@ -113,6 +113,11 @@ export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cask/bin:$PATH"
 
+
+# export PATH="$HOME/.cabal/bin:$PATH"
+# export PATH="/opt/ghc/8.0.1/bin:$PATH"
+# export PATH="/opt/cabal/1.24/bin:$PATH"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
