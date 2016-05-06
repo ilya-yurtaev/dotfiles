@@ -15,8 +15,9 @@
 ;; look
 (load-theme 'monokai t)
 ;;(load-theme 'moe-dark t)
-(powerline-default-theme)
-;; (setq-default mode-line-format nil)
+;; (powerline-default-theme)
+(set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#554")
+(setq mode-line-in-non-selected-windows nil)
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
 (set-frame-font "Ubuntu Mono-14")
@@ -148,6 +149,7 @@
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-mode))
 
 ;; haskell
+(require 'haskell)
 (require 'haskell-process)
 (require 'haskell-interactive-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
@@ -174,6 +176,10 @@
                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
 (require 'shm-case-split)
 (define-key shm-map (kbd "C-c C-s") 'shm/case-split)
+
+;; elm
+(add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
+(add-to-list 'company-backends 'company-elm)
 
 ;; lisp
 (setq inferior-lisp-program "/usr/bin/sbcl")
@@ -214,6 +220,9 @@
 (global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-M-<down>") 'shrink-window)
 (global-set-key (kbd "S-M-<up>") 'enlarge-window)
+
+(defun insert-current-date () (interactive)
+    (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
 
 
 (defalias 'yes-or-no-p 'y-or-n-p)

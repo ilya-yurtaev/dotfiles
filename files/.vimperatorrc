@@ -1,6 +1,6 @@
 set nofocuscontent 
 set titlestring="Firefox — Vimperator"
-set fullscreen
+set nofullscreen
 set! browser.tabs.closeButtons=2
 "set editor = "C:\Program Files\Vim\vim72\gvim.exe -f"
 set editor="gvim"
