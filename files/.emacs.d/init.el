@@ -12,9 +12,9 @@
 (setq ns-pop-up-frames nil)
 (add-to-list 'display-buffer-alist
              '("^[^\\*].*[^\\*]$" display-buffer-same-window) t)
+
 ;; look
 (load-theme 'monokai t)
-;;(load-theme 'moe-dark t)
 ;; (powerline-default-theme)
 (set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#554")
 (setq mode-line-in-non-selected-windows nil)
@@ -32,7 +32,7 @@
 (set-face-attribute 'mode-line-inactive nil
                     :underline t
                     :background (face-background 'default))
-(setq linum-format " %d ")
+;; (setq linum-format " %d ")
 (setq-default left-margin-width 1 right-margin-width 1)
 (set-window-buffer nil (current-buffer))
 (setq initial-scratch-message "")
