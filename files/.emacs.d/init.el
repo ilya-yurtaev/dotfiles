@@ -14,6 +14,7 @@
              '("^[^\\*].*[^\\*]$" display-buffer-same-window) t)
 
 ;; look
+(setq frame-title-format "%b — Emacs")
 (load-theme 'monokai t)
 ;; (powerline-default-theme)
 (set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#554")
