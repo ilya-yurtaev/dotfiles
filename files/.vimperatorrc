@@ -1,5 +1,5 @@
-set nofocuscontent 
-set titlestring="Firefox — Vimperator"
+set focuscontent 
+set titlestring="Vimperator"
 set nofullscreen
 set! browser.tabs.closeButtons=2
 set gui+=notabs,nonavigation,noaddons,nobookmarks,nomenu
