@@ -42,6 +42,12 @@
 (setq system-uses-terminfo nil)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; speedbar
+(require 'sr-speedbar)
+(setq speedbar-use-images nil)
+(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
+(speedbar-add-supported-extension ".hs")
+
 
 ;; tabs and whitespaces
 (setq-default indent-tabs-mode nil)
@@ -68,6 +74,8 @@
 (setq create-lockfiles nil)
 
 ;; evil
+(require 'evil)
+(require 'key-chord)
 (evil-mode)
 (setq evil-shift-width 2)
 (setq key-chord-two-keys-delay 0.5)
@@ -96,6 +104,7 @@
 (global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
 
 ;; ido
+(require 'ido)
 (ido-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
@@ -108,6 +117,7 @@
 (global-set-key "\C-x\ \C-f" 'helm-find-files)
 
 ;; projectile
+(require 'projectile)
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 (setq projectile-switch-project-action 'neotree-projectile-action)
@@ -132,19 +142,6 @@
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (add-to-list 'company-backends 'company-ghc)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(company-ghc-show-info t)
- '(custom-safe-themes
-   (quote
-    ("38ba6a938d67a452aeb1dada9d7cdeca4d9f18114e9fc8ed2b972573138d4664" "868f73b5cf78e72ca2402e1d48675e49cc9a9619c5544af7bf216515d22b58e7" "b85fc9f122202c71b9884c5aff428eb81b99d25d619ee6fde7f3016e08515f07" default)))
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-type (quote stack-ghci)))
 
 ;; config types
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-mode))
@@ -183,10 +180,12 @@
 (add-to-list 'company-backends 'company-elm)
 
 ;; lisp
+(require 'slime)
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq slime-contribs '(slime-fancy))
 
 ;; javascript
+(require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js-indent-level 2)
 (setq js2-basic-offset 2)
@@ -210,10 +209,13 @@
                       '(json-jsonlist)))
 
 ;; python
+(require 'python-mode)
 (add-hook 'python-mode-hook
           (function (lambda ()
                       (setq python-indent 4)
                       (setq evil-shift-width 4))))
+(setq python-shell-interpreter "ipython"
+    python-shell-interpreter-args "-i")
 
 ;; keys
 (global-set-key (kbd "<f2>") 'save-buffer)
@@ -227,9 +229,19 @@
 
 
 (defalias 'yes-or-no-p 'y-or-n-p)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
+
+(require 'package)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(company-ghc-show-info t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote stack-ghci))
+ '(package-archives
+   (quote
+    (("gnu" . "http://elpa.gnu.org/packages/")
+     ("melpa-stable" . "http://stable.melpa.org/packages/")))))
