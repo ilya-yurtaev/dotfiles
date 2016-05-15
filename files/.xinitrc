@@ -6,3 +6,4 @@ xgamma -bgamma 0.95 &
 sudo service thinkfan restart &
 sudo powertop --auto-tune &
 mpd &
+gnome-terminal --command=tmux &
