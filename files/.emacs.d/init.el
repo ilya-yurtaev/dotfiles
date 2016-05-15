@@ -148,6 +148,7 @@
 
 ;; haskell
 (require 'haskell)
+(require 'haskell-mode)
 (require 'haskell-process)
 (require 'haskell-interactive-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
