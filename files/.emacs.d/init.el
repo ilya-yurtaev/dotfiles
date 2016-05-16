@@ -146,6 +146,10 @@
 ;; config types
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-mode))
 
+;; forth
+(autoload 'forth-mode "gforth.el")
+(setq auto-mode-alist (cons '("\\.fs\\'" . forth-mode) auto-mode-alist))
+
 ;; haskell
 (require 'haskell)
 (require 'haskell-mode)
