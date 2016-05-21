@@ -47,7 +47,7 @@ setopt extendedglob
 setopt auto_cd correct_all
 
 export CLICOLOR="xterm-color"
-export LS_OPTIONS='--color=auto'
+export LS_OPTIONS='--color=always'
 export ZLS_COLORS=LS_COLORS
 eval "`dircolors`"
 export VISUAL=vim
@@ -81,7 +81,7 @@ alias cls="clear"
 alias emacs='setsid emacsclient "$@" -a ""'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 alias ll='ls $LS_OPTIONS -l'
-alias l='ls $LS_OPTIONS -lA'
+alias l="ls $LS_OPTIONS -lA `echo $1` | less"
 alias rm='rm -i'
 alias docker='sudo docker'
 alias gvim='gvim --remote-tab-silent'

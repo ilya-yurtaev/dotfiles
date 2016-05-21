@@ -1,7 +1,5 @@
-(source gnu)
-(source marmalade)
-(source melpa)
-(source org)
+(source "gnu" "http://elpa.gnu.org/packages/")
+(source "melpa-stable" "http://stable.melpa.org/packages/")
 
 (depends-on "async")
 (depends-on "bind-key")
@@ -84,6 +82,7 @@
 (depends-on "slime")
 (depends-on "smartparens")
 (depends-on "smex")
+(depends-on "solarized-theme")
 (depends-on "sr-speedbar")
 (depends-on "turnip")
 (depends-on "typed-clojure-mode")

@@ -10,14 +10,15 @@
 (toggle-frame-maximized)
 
 (setq ns-pop-up-frames nil)
-(add-to-list 'display-buffer-alist
-             '("^[^\\*].*[^\\*]$" display-buffer-same-window) t)
+;; (add-to-list 'display-buffer-alist
+;;              '("^[^\\*].*[^\\*]$" display-buffer-same-window) t)
 
 ;; look
 (setq frame-title-format "%b — Emacs")
 (load-theme 'monokai t)
+;; (load-theme 'solarized-dark t)
 ;; (powerline-default-theme)
-(set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#554")
+(set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#544")
 (setq mode-line-in-non-selected-windows nil)
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
@@ -37,6 +38,9 @@
 (setq-default left-margin-width 1 right-margin-width 1)
 (set-window-buffer nil (current-buffer))
 (setq initial-scratch-message "")
+(set-face-bold 'bold nil)
+(set-face-italic 'italic nil)
+
 
 ;; shell
 (setq system-uses-terminfo nil)
@@ -121,9 +125,6 @@
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 (setq projectile-switch-project-action 'neotree-projectile-action)
-
-
-;; recent files
 
 ;; flycheck
 (require 'flycheck)
@@ -231,7 +232,6 @@
 
 (defun insert-current-date () (interactive)
     (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
-
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
