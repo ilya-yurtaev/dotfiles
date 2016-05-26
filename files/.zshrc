@@ -80,8 +80,10 @@ alias apt="sudo aptitude"
 alias cls="clear"
 alias emacs='setsid emacsclient "$@" -a ""'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
-alias ll='ls $LS_OPTIONS -l'
-alias l="ls $LS_OPTIONS -lA `echo $1` | less"
+# alias ll='ls -l'
+# alias l="ls $LS_OPTIONS -lA `echo $1` | less"
+alias l="ls -lai"
+# l(){ ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc" $6 | sort | less }
 alias rm='rm -i'
 alias docker='sudo docker'
 alias gvim='gvim --remote-tab-silent'

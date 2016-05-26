@@ -144,6 +144,12 @@
 (add-hook 'after-init-hook 'global-company-mode)
 (add-to-list 'company-backends 'company-ghc)
 
+;; ycmd
+(require 'flycheck-ycmd)
+(require 'company-ycmd)
+(company-ycmd-setup)
+(flycheck-ycmd-setup)
+
 ;; config types
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-mode))
 
