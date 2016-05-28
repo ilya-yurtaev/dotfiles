@@ -131,6 +131,8 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; neotree
+(require 'neotree)
+(setq neo-smart-open t)
 (global-set-key (kbd "<f12>") 'neotree-toggle)
 (add-hook 'neotree-mode-hook
           (lambda ()
