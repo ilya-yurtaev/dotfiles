@@ -83,6 +83,7 @@ alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 # alias ll='ls -l'
 # alias l="ls $LS_OPTIONS -lA `echo $1` | less"
 alias l="ls -lai"
+alias ll="ls -la | less"
 # l(){ ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc" $6 | sort | less }
 alias rm='rm -i'
 alias docker='sudo docker'

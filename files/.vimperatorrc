@@ -22,6 +22,8 @@ map <S-F8> :se go-=mT<cr>
 noremap H gT
 noremap L gt
 
+noremap D :tabonly<cr>
+
 map > :fo<cr>
 map < :ba<cr>
 
