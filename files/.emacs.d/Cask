@@ -24,6 +24,7 @@
 (depends-on "erlang")
 (depends-on "evil")
 (depends-on "evil-leader")
+(depends-on "evil-magit")
 (depends-on "evil-nerd-commenter")
 (depends-on "evil-paredit")
 (depends-on "evil-surround")

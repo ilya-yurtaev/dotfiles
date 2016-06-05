@@ -182,19 +182,19 @@ set wrap
 set go=aci " e - gui tabs, c - console dialogs
 autocmd GUIEnter * set visualbell t_vb=
 
-set laststatus=2
+set laststatus=1
 set statusline=
-set statusline+=\ %9*λ\ %6*\ %{bufnr(\"%\")}                                  "current buffer number
-set statusline+=%1*\ %F\                                              "file path 
-set statusline+=%2*[                                                  "hl
-set statusline+=%Y,\                                                  "file type 
-set statusline+=%{&encoding},\                                        "encoding 
-set statusline+=%{&ff}]%4*                                            "file format
-set statusline+=%m%r%h%w\                                             "flags 
-set statusline+=%8*                                                   "hl
-set statusline+=%{strftime(\"\%d.\%m.\%y\ \%H:\%I\",\ getftime(expand(\"\%\")))}\     "date modified 
-set statusline+=%0*%=                                                 "hl and align right
-set statusline+=%l:%-3v                                               "line:column
+"set statusline+=\ %9*λ\ %6*\ %{bufnr(\"%\")}                                  "current buffer number
+"set statusline+=%1*\ %F\                                              "file path 
+"set statusline+=%2*[                                                  "hl
+"set statusline+=%Y,\                                                  "file type 
+"set statusline+=%{&encoding},\                                        "encoding 
+"set statusline+=%{&ff}]%4*                                            "file format
+"set statusline+=%m%r%h%w\                                             "flags 
+"set statusline+=%8*                                                   "hl
+"set statusline+=%{strftime(\"\%d.\%m.\%y\ \%H:\%I\",\ getftime(expand(\"\%\")))}\     "date modified 
+"set statusline+=%0*%=                                                 "hl and align right
+"set statusline+=%l:%-3v                                               "line:column
 "set statusline+=\ \ \ %7*%L\ %2*lines,\                               "lines count
 "set statusline+=%6*%{CharCount()}\ %2*chars,\                         "chars count
 "set statusline+=%3*%{getfsize(expand(\"\%\"))}\ %2*bytes\             "bytes count
