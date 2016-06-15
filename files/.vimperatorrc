@@ -1,6 +1,7 @@
 set focuscontent 
 set titlestring="Vimperator"
 set nofullscreen
+set complete=l
 set! browser.tabs.closeButtons=2
 set gui+=notabs,nonavigation,noaddons,nobookmarks,nomenu
 "set editor = "C:\Program Files\Vim\vim72\gvim.exe -f"

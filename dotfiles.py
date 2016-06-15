@@ -5,6 +5,7 @@ import shutil
 import sys
 import logging
 
+from functools import wraps
 from collections import namedtuple
 from datetime import datetime
 
@@ -17,13 +18,31 @@ _path = os.path.join
 _exists = os.path.exists
 
 
-Env = namedtuple('Env', ['home', 'root', 'cfg_path', 'backup_dir', 'files_dir'])
+Env = namedtuple(
+    'Env', ['home', 'root', 'cfg_path', 'backup_dir', 'files_dir'])
 Dotfile = namedtuple('Dotfile', ['name', 'src', 'dst'])
 
 
 LOG = logging.getLogger()
 LOG.addHandler(logging.StreamHandler())
 LOG.setLevel(logging.DEBUG)
+
+DEFAULT_CFG = "\n".join((
+    '.bashrc',
+    '.conkyrc',
+    '.emacs',
+    '.ghci',
+    '.hgrc',
+    '.irbrc',
+    '.jshintrc',
+    '.profile',
+    '.pylintrc',
+    '.screenrc',
+    '.tmux.conf',
+    '.vimperatorrc',
+    '.vimrc',
+    '.zshrc',
+))
 
 
 def command_registry(cls):
@@ -56,34 +75,17 @@ def command_registry(cls):
 
 
 def command(fn):
+    @wraps(fn)
     def wrapper(self, *args, **kwargs):
         fn(self, *args, **kwargs)
 
     wrapper.registry = True
-    wrapper.__doc__ = fn.__doc__
 
     return wrapper
 
 
 @command_registry
 class App(object):
-    default_cfg = "\n".join((
-        '.bashrc',
-        '.conkyrc',
-        '.emacs',
-        '.ghci',
-        '.hgrc',
-        '.irbrc',
-        '.jshintrc',
-        '.profile',
-        '.pylintrc',
-        '.screenrc',
-        '.tmux.conf',
-        '.vimperatorrc',
-        '.vimrc',
-        '.zshrc',
-    ))
-
     def __init__(self):
         home = os.environ.get('HOME')
         root = os.path.dirname(os.path.abspath(__file__))
@@ -126,7 +128,7 @@ class App(object):
 
     @command
     def install(self):
-        self.cfg = self.cfg or self.write_cfg(self.default_cfg)
+        self.cfg = self.cfg or self.write_cfg(DEFAULT_CFG)
         self.backup()
         map(link, self.dotfiles(pending))
 
@@ -139,8 +141,8 @@ class App(object):
         existing_paths = [d.src for d in self.dotfiles(_id)]
         names_to_add = set(
             n for n in names
-            if normalize(n) not in existing_paths
-            and _exists(normalize(n))
+            if normalize(n) not in existing_paths and _exists(
+                normalize(n))
         )
 
         if names_to_add:
@@ -169,7 +171,7 @@ class App(object):
             [unlink(self.mk_dotfile(x)) for x in _names]
         except OSError:
             pass
-        
+
         self.write_cfg(
             "\n".join(
                 [n for n in self.cfg.splitlines() if n not in _names]
@@ -179,8 +181,9 @@ class App(object):
     def gen_cfg(self):
 
         def _walk(d, _, files):
-            return "\n".join([_path(d, f).replace(self.env.files_dir, "~") for f in files])
-        
+            return "\n".join([
+                _path(d, f).replace(self.env.files_dir, "~") for f in files])
+
         self.write_cfg("\n".join(
             [_walk(*p) for p in os.walk(self.env.files_dir) if p]
         ))

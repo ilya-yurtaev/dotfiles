@@ -8,6 +8,7 @@
 
 (server-start)
 (toggle-frame-maximized)
+;; (toggle-frame-fullscreen)
 
 (setq ns-pop-up-frames nil)
 ;; (add-to-list 'display-buffer-alist
@@ -15,10 +16,11 @@
 
 ;; look
 (setq frame-title-format "%b — Emacs")
-(load-theme 'monokai t)
+;; (load-theme 'base16-greenscreen-dark t)
+;; (load-theme 'base16-default-dark t)
 ;; (load-theme 'solarized-dark t)
-;; (powerline-default-theme)
-(set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#544")
+(load-theme 'monokai t)
+(set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#553")
 (setq mode-line-in-non-selected-windows nil)
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
@@ -116,6 +118,7 @@
 (setq vc-follow-symlinks nil)
 
 ;; helm
+(require 'helm)
 (helm-mode 1)
 (global-set-key "\C-x\ \C-r" 'helm-recentf)
 (global-set-key "\C-x\ \C-f" 'helm-find-files)
@@ -147,10 +150,16 @@
 (add-to-list 'company-backends 'company-ghc)
 
 ;; ycmd
+(require 'ycmd)
 (require 'flycheck-ycmd)
 (require 'company-ycmd)
+(set-variable 'ycmd-global-config (expand-file-name "~/.ycmd_extra_conf.py"))
+(set-variable 'ycmd-server-command '("ycmd"))
 (company-ycmd-setup)
 (flycheck-ycmd-setup)
+(when (not (display-graphic-p))
+  (setq flycheck-indication-mode nil))
+(add-hook 'after-init-hook #'global-ycmd-mode)
 
 ;; config types
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-mode))
@@ -161,15 +170,18 @@
 
 ;; haskell
 (require 'haskell)
+;; (require 'intero)
 (require 'haskell-mode)
 (require 'haskell-process)
 (require 'haskell-interactive-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;; (add-hook 'haskell-mode-hook 'intero-mode)
 
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
+(autoload 'ghc-init "stack ghc" nil t)
+(autoload 'ghc-debug "stack ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+(setq haskell-tags-on-save t)
 
 
 (eval-after-load 'haskell-mode '(progn
@@ -179,8 +191,7 @@
                                   (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
                                   (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
                                   (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-                                  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
-                                  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
+                                  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)))
 (eval-after-load 'haskell-cabal '(progn
                                    (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
                                    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
@@ -190,6 +201,9 @@
 (define-key shm-map (kbd "C-c C-s") 'shm/case-split)
 
 ;; elm
+(with-eval-after-load 'flycheck
+    '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
+;; (add-hook 'flycheck-mode-hook 'flycheck-elm-setup)
 (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
 (add-to-list 'company-backends 'company-elm)
 

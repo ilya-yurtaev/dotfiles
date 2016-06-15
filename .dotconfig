@@ -19,6 +19,7 @@
 ~/.screenrc
 ~/.stack/config.yaml
 ~/.tmux.conf
+~/.valgrindrc
 ~/.vimperatorrc
 ~/.vimrc
 ~/.xinitrc
