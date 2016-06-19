@@ -88,6 +88,7 @@
 (depends-on "racket-mode")
 (depends-on "rainbow-delimiters")
 (depends-on "rainbow-mode")
+(depends-on "ruby-tools")
 (depends-on "s")
 (depends-on "shm")
 (depends-on "slime")
