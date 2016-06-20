@@ -102,6 +102,7 @@
 (depends-on "web-beautify")
 (depends-on "web-mode")
 (depends-on "writeroom-mode")
+(depends-on "yagist")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
 (depends-on "ycmd")

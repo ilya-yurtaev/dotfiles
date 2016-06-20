@@ -15,3 +15,5 @@
 
 [alias]
 	l = log --oneline --graph
+[github]
+	oauth-token = c614fc0b051891dacddb3d400b6ee7ebcda3e9b8

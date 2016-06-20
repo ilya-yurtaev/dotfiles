@@ -2,6 +2,7 @@
 # in all projects.  For more information about stack's configuration, see
 # https://github.com/commercialhaskell/stack/blob/release/doc/yaml_configuration.md
 #
+compiler-check: newer-minor
 templates:
   params:
     author-email: ilya.yurtaev@gmail.com
