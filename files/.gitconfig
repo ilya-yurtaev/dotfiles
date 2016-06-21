@@ -15,3 +15,6 @@
 
 [alias]
 	l = log --oneline --graph
+
+[credential]
+	helper = cache --timeout=36000
