@@ -17,6 +17,7 @@ s0_gradient_3 = #d9d9d9cc
 s0_outline_color = #e6e6e6ff
 
 [unityshell]
+s0_lock_screen = Disabled
 s0_show_hud = <Control>slash
 s0_show_desktop_key = Disabled
 s0_panel_first_menu = <Alt><Super>F10
@@ -36,6 +37,7 @@ s0_disable_show_desktop = true
 
 [core]
 s0_active_plugins = core;composite;opengl;imgpng;regex;snap;imgsvg;text;commands;imgjpeg;animation;compiztoolbox;move;vpswitch;grid;resize;copytex;mousepoll;winrules;shift;place;workarounds;session;fade;cube;scale;expo;ezoom;rotate;unityshell;unitymtgrabhandles;
+s0_do_serialize = true
 s0_outputs = 1366x768+0+0;
 s0_autoraise = false
 s0_autoraise_delay = 500
@@ -46,6 +48,13 @@ s0_vsize = 2
 
 [switcher]
 s0_background_color = #333333d9
+
+[wallpaper]
+s0_bg_image = /home/ilya/Pictures/carbon.png;/home/ilya/Dropbox/Photos/retro-wallpaper-35.jpg;
+s0_bg_image_pos = 1;1;
+s0_bg_fill_type = 0;0;
+s0_bg_color1 = #000000ff;#000000ff;
+s0_bg_color2 = #000000ff;#000000ff;
 
 [animation]
 s0_open_matches = ((type=Normal | Unknown) | name=sun-awt-X11-XFramePeer | name=sun-awt-X11-XDialogPeer) & !(role=toolTipTip | role=qtooltip_label) & !(type=Normal & override_redirect=1) & !(name=gnome-screensaver);((type=Menu | PopupMenu | DropdownMenu | Combo | Dialog | ModalDialog | Normal) & !(class=\.exe$));(type=Tooltip | Notification | Utility) & !(name=compiz) & !(title=notify-osd);
@@ -66,6 +75,10 @@ s0_put_bottomright_key = <Control><Alt>KP_Next
 s0_thumb_highlight_gradient_shadow_color = #dfdfdfff
 s0_arrow_base_color = #e6e6e6d9
 s0_arrow_shadow_color = #dcdcdcd9
+s0_left_key = <Super>h
+s0_right_key = <Super>l
+s0_left_window_key = <Control><Super>h
+s0_right_window_key = <Control><Super>l
 
 [vpswitch]
 s0_switch_to_1_key = <Super>Home
@@ -96,6 +109,9 @@ s0_maximize_match = class=Gnome-terminal
 [shift]
 s0_next_key = <Alt>Tab
 s0_prev_key = <Shift><Alt>Tab
+s0_speed = 2,100000
+s0_shift_speed = 1,060000
+s0_timestep = 1,300000
 s0_ground_color1 = #b3b3b3cc
 s0_ground_color2 = #b3b3b300
 
@@ -115,6 +131,10 @@ s0_line_color = #1800ffff
 s0_cross_line_color = #1800ffff
 
 [rotate]
+s0_rotate_left_key = <Super>h
+s0_rotate_right_key = <Super>l
+s0_rotate_left_window_key = <Control><Super>h
+s0_rotate_right_window_key = <Control><Super>l
 s0_rotate_to_1_key = <Super>Home
 s0_rotate_to_1_window_key = <Shift><Super>Home
 
