@@ -72,6 +72,7 @@
 (depends-on "markdown-mode")
 (depends-on "monokai-theme")
 (depends-on "multiple-cursors")
+(depends-on "nasm-mode")
 (depends-on "neotree")
 (depends-on "nodejs-repl")
 (depends-on "package-build")
