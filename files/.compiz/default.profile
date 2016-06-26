@@ -36,7 +36,7 @@ s0_alt_tab_prev_all = Disabled
 s0_disable_show_desktop = true
 
 [core]
-s0_active_plugins = core;composite;opengl;imgpng;regex;snap;imgsvg;text;commands;imgjpeg;animation;compiztoolbox;move;vpswitch;grid;resize;copytex;mousepoll;winrules;shift;place;workarounds;session;fade;cube;scale;expo;ezoom;rotate;unityshell;unitymtgrabhandles;
+s0_active_plugins = core;composite;opengl;imgpng;regex;snap;imgsvg;text;commands;imgjpeg;animation;compiztoolbox;move;vpswitch;grid;resize;copytex;mousepoll;winrules;shift;place;workarounds;session;fade;cube;scale;expo;ezoom;rotate;unityshell;switcher;unitymtgrabhandles;
 s0_do_serialize = true
 s0_outputs = 1366x768+0+0;
 s0_autoraise = false
@@ -44,9 +44,11 @@ s0_autoraise_delay = 500
 s0_show_desktop_key = <Control><Super>d
 s0_toggle_window_maximized_key = <Alt>F10
 s0_hsize = 4
-s0_vsize = 2
 
 [switcher]
+s0_focus_on_switch = true
+s0_icon_only = true
+s0_auto_rotate = true
 s0_background_color = #333333d9
 
 [wallpaper]
@@ -107,8 +109,6 @@ s0_fire_color = #ff3305ff
 s0_maximize_match = class=Gnome-terminal
 
 [shift]
-s0_next_key = <Alt>Tab
-s0_prev_key = <Shift><Alt>Tab
 s0_speed = 2,100000
 s0_shift_speed = 1,060000
 s0_timestep = 1,300000
