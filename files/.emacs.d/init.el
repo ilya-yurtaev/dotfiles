@@ -119,7 +119,10 @@
 
 ;; helm
 (require 'helm)
+(require 'helm-config)
 (helm-mode 1)
+(setq helm-fuzzy-match t)
+(setq helm-completion-in-region-fuzzy-match t)
 (global-set-key "\C-x\ \C-r" 'helm-recentf)
 (global-set-key "\C-x\ \C-f" 'helm-find-files)
 
