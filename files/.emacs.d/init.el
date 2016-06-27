@@ -123,8 +123,9 @@
 (helm-mode 1)
 (setq helm-fuzzy-match t)
 (setq helm-completion-in-region-fuzzy-match t)
-(global-set-key "\C-x\ \C-r" 'helm-recentf)
-(global-set-key "\C-x\ \C-f" 'helm-find-files)
+(global-set-key (kbd "C-x C-r") 'helm-recentf)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ;; projectile
 (require 'projectile)
