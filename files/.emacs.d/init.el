@@ -1,3 +1,5 @@
+(setq gc-cons-threshold 100000000)
+
 (require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
@@ -49,10 +51,9 @@
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 ;; speedbar
-(require 'sr-speedbar)
-(setq speedbar-use-images nil)
-(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
-(speedbar-add-supported-extension ".hs")
+;;(setq speedbar-use-images nil)
+;;(global-set-key (kbd "<f8>") 'sr-speedbar-toggle)
+;;(speedbar-add-supported-extension ".hs")
 
 
 ;; tabs and whitespaces
@@ -80,14 +81,13 @@
 (setq create-lockfiles nil)
 
 ;; evil
-(require 'evil)
-(require 'key-chord)
 (evil-mode)
 (setq evil-shift-width 2)
 (setq key-chord-two-keys-delay 0.5)
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 (key-chord-mode 1)
 
+(require 'evil)
 (require 'evil-leader)
 (evil-leader/set-leader ",")
 (global-evil-leader-mode)
@@ -110,7 +110,6 @@
 (global-set-key (kbd "C-c p") 'evilnc-comment-or-uncomment-paragraphs)
 
 ;; ido
-(require 'ido)
 (ido-mode 1)
 (ido-everywhere 1)
 (flx-ido-mode 1)
@@ -118,8 +117,6 @@
 (setq vc-follow-symlinks nil)
 
 ;; helm
-(require 'helm)
-(require 'helm-config)
 (helm-mode 1)
 (setq helm-fuzzy-match t)
 (setq helm-completion-in-region-fuzzy-match t)
@@ -128,17 +125,14 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 ;; projectile
-(require 'projectile)
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 (setq projectile-switch-project-action 'neotree-projectile-action)
 
 ;; flycheck
-(require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; neotree
-(require 'neotree)
 (setq neo-smart-open t)
 (global-set-key (kbd "<f12>") 'neotree-toggle)
 (add-hook 'neotree-mode-hook
@@ -154,9 +148,6 @@
 (add-to-list 'company-backends 'company-ghc)
 
 ;; ycmd
-(require 'ycmd)
-(require 'flycheck-ycmd)
-(require 'company-ycmd)
 (set-variable 'ycmd-global-config (expand-file-name "~/.ycmd_extra_conf.py"))
 (set-variable 'ycmd-server-command '("ycmd"))
 (company-ycmd-setup)
@@ -173,11 +164,6 @@
 (setq auto-mode-alist (cons '("\\.fs\\'" . forth-mode) auto-mode-alist))
 
 ;; haskell
-(require 'haskell)
-;; (require 'intero)
-(require 'haskell-mode)
-(require 'haskell-process)
-(require 'haskell-interactive-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 ;; (add-hook 'haskell-mode-hook 'intero-mode)
@@ -201,23 +187,19 @@
                                    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
                                    (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
-(require 'shm-case-split)
-(define-key shm-map (kbd "C-c C-s") 'shm/case-split)
 
 ;; elm
 (with-eval-after-load 'flycheck
-    '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
+  '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
 ;; (add-hook 'flycheck-mode-hook 'flycheck-elm-setup)
 (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
 (add-to-list 'company-backends 'company-elm)
 
 ;; lisp
-(require 'slime)
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (setq slime-contribs '(slime-fancy))
 
 ;; javascript
-(require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq js-indent-level 2)
 (setq js2-basic-offset 2)
@@ -241,13 +223,12 @@
                       '(json-jsonlist)))
 
 ;; python
-(require 'python-mode)
 (add-hook 'python-mode-hook
           (function (lambda ()
                       (setq python-indent 4)
                       (setq evil-shift-width 4))))
 (setq python-shell-interpreter "ipython"
-    python-shell-interpreter-args "-i")
+      python-shell-interpreter-args "-i")
 
 ;; keys
 (global-set-key (kbd "<f2>") 'save-buffer)
@@ -257,11 +238,10 @@
 (global-set-key (kbd "S-M-<up>") 'enlarge-window)
 
 (defun insert-current-date () (interactive)
-    (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
+       (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(require 'package)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -282,3 +262,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; restore gc threshold
+(run-with-idle-timer
+ 5 nil
+ (lambda ()
+   (setq gc-cons-threshold 1000000)
+   (message "gc-cons-threshold restored to %S"
+            gc-cons-threshold)))

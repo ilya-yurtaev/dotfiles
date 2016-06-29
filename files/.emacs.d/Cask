@@ -25,6 +25,7 @@
 (depends-on "elm-mode")
 (depends-on "emmet-mode")
 (depends-on "erlang")
+(depends-on "esup")
 (depends-on "evil")
 (depends-on "evil-leader")
 (depends-on "evil-magit")
