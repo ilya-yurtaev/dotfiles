@@ -1,6 +1,7 @@
 ~/.FBReader/config.changes
 ~/.compiz/default.profile
 ~/.conkyrc
+~/.dotconfig
 ~/.emacs.d/Cask
 ~/.emacs.d/Makefile
 ~/.emacs.d/init.el
@@ -24,4 +25,3 @@
 ~/.vimrc
 ~/.xinitrc
 ~/.zshrc
-~/bookmarks.html
