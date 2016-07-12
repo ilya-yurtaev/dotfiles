@@ -20,6 +20,7 @@
 (depends-on "ctags")
 (depends-on "dash")
 (depends-on "drag-stuff")
+(depends-on "ediprolog")
 (depends-on "edts")
 (depends-on "el-get")
 (depends-on "elm-mode")
