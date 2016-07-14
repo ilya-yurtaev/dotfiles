@@ -191,7 +191,6 @@
 ;; elm
 (with-eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
-;; (add-hook 'flycheck-mode-hook 'flycheck-elm-setup)
 (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
 (add-to-list 'company-backends 'company-elm)
 

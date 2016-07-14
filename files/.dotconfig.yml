@@ -1,4 +1,4 @@
-appDir: /home/ilya/.dotfiles
+appDir: ~/.dotfiles
 dfNames:
 - ~/.FBReader/config.changes
 - ~/.compiz/default.profile
