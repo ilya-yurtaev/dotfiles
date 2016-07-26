@@ -8,7 +8,6 @@
 
 (exec-path-from-shell-initialize)
 
-(server-start)
 (toggle-frame-maximized)
 ;; (toggle-frame-fullscreen)
 
@@ -27,10 +26,10 @@
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
 (set-frame-font "Ubuntu Mono-14")
-(setq default-frame-alist '((font . "Ubuntu Mono-14")))
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
+(scroll-bar-mode -1)
 (menu-bar-mode -1)
 (global-hl-line-mode)
 (global-auto-revert-mode 1)
@@ -229,6 +228,11 @@
                       (setq evil-shift-width 4))))
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i")
+
+;; org mode
+(setq org-agenda-files (list "notes.org"
+                             "todos.org"
+                             "daily.org"))
 
 ;; keys
 (global-set-key (kbd "<f2>") 'save-buffer)

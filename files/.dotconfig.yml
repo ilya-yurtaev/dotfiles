@@ -1,6 +1,7 @@
 appDir: ~/.dotfiles
 dfNames:
 - ~/.FBReader/config.changes
+- ~/.Xresources
 - ~/.compiz/default.profile
 - ~/.config/systemd/user/emacs.service
 - ~/.conkyrc

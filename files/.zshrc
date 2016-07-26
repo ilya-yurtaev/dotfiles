@@ -80,7 +80,7 @@ alias :r="source ~/.zshrc"
 alias :q="exit"
 alias apt="sudo aptitude"
 alias cls="clear"
-alias emacs='emacsclient -c -a emacs'
+alias emacs='emacsclient -c -a emacs -F "((fullscreen . maximized))"'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 # alias ll='ls -l'
 # alias l="ls $LS_OPTIONS -lA `echo $1` | less"
