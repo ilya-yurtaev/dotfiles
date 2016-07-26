@@ -20,7 +20,7 @@ ZSH_THEME="blinks"
 #COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(composer emacs extract npm nvm pip rbenv stack vi-mode)
+plugins=(composer extract npm nvm pip rbenv stack vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -52,9 +52,9 @@ export CLICOLOR="xterm-color"
 export LS_OPTIONS='--color=always'
 export ZLS_COLORS=LS_COLORS
 eval "`dircolors`"
-export VISUAL=vim
 #export EDITOR="gvim --remote-tab-silent"
-export EDITOR='setsid emacsclient "$@" -a ""'
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -c -a emacs'
 export TERM=xterm-256color
 export PAGER=less
 [[ $EMACS = t ]] && unsetopt zle
@@ -80,7 +80,7 @@ alias :r="source ~/.zshrc"
 alias :q="exit"
 alias apt="sudo aptitude"
 alias cls="clear"
-alias emacs='setsid emacsclient "$@" -a ""'
+alias emacs='emacsclient -c -a emacs'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 # alias ll='ls -l'
 # alias l="ls $LS_OPTIONS -lA `echo $1` | less"
@@ -117,6 +117,8 @@ export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cask/bin:$PATH"
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
 
 
 # export PATH="$HOME/.cabal/bin:$PATH"

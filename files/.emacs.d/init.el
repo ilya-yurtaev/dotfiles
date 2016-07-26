@@ -27,6 +27,7 @@
 (setq font-lock-maximum-decoration t)
 (setq frame-background-mode 'dark)
 (set-frame-font "Ubuntu Mono-14")
+(setq default-frame-alist '((font . "Ubuntu Mono-14")))
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
@@ -66,7 +67,7 @@
 
 
 (paredit-everywhere-mode)
-(dolist (mode '(ruby espresso js2))
+(dolist (mode '(ruby espresso js3))
   (add-hook (intern (format "%s-mode-hook" mode))
             '(lambda ()
                (add-to-list (make-local-variable 'paredit-space-for-delimiter-predicates)
@@ -79,6 +80,7 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 (setq create-lockfiles nil)
+
 
 ;; evil
 (require 'evil)
@@ -94,7 +96,6 @@
 (evil-leader/set-key
   "ci" 'evilnc-comment-or-uncomment-lines
   "cu" 'evilnc-comment-or-uncomment-lines
-  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
   "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
   "cc" 'evilnc-copy-and-comment-lines
   "cp" 'evilnc-comment-or-uncomment-paragraphs
@@ -199,10 +200,10 @@
 (setq slime-contribs '(slime-fancy))
 
 ;; javascript
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js3-mode))
 (setq js-indent-level 2)
-(setq js2-basic-offset 2)
-(setq js2-bounce-indent-p t)
+(setq js3-basic-offset 2)
+(setq js3-bounce-indent-p t)
 (add-hook 'js-mode-hook
           (function (lambda ()
                       (setq evil-shift-width 2))))
@@ -235,6 +236,10 @@
 (global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-M-<down>") 'shrink-window)
 (global-set-key (kbd "S-M-<up>") 'enlarge-window)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 (defun insert-current-date () (interactive)
        (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
