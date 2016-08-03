@@ -1,5 +1,6 @@
 # https://github.com/robbyrussell/oh-my-zsh
 
+
 ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="blinks"
@@ -53,8 +54,8 @@ export LS_OPTIONS='--color=always'
 export ZLS_COLORS=LS_COLORS
 eval "`dircolors`"
 #export EDITOR="gvim --remote-tab-silent"
-export EDITOR='emacsclient -t'
-export VISUAL='emacsclient -c -a emacs'
+export EDITOR='emacsclient'
+export VISUAL='emacsclient -a "emacsclient -t"'
 export TERM=xterm-256color
 export PAGER=less
 [[ $EMACS = t ]] && unsetopt zle
@@ -80,7 +81,7 @@ alias :r="source ~/.zshrc"
 alias :q="exit"
 alias apt="sudo aptitude"
 alias cls="clear"
-alias emacs='emacsclient -c -a emacs -F "((fullscreen . maximized))"'
+alias emacs='emacsclient -a "emacsclient -c" -F "((fullscreen . maximized))"'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 # alias ll='ls -l'
 # alias l="ls $LS_OPTIONS -lA `echo $1` | less"
