@@ -223,6 +223,10 @@
               (append flycheck-disabled-checkers
                       '(json-jsonlist)))
 
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+
 ;; python
 (add-hook 'python-mode-hook
           (function (lambda ()
