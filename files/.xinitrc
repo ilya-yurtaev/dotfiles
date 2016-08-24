@@ -7,4 +7,4 @@ sudo powertop --auto-tune &
 mpd &
 gnome-terminal --command=tmux &
 sleep 1
-xgamma -bgamma 0.85
+xgamma -bgamma 0.83

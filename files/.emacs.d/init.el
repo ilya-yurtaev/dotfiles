@@ -19,6 +19,7 @@
 ;; (load-theme 'base16-greenscreen-dark t)
 ;; (load-theme 'base16-default-dark t)
 ;; (load-theme 'solarized-dark t)
+;; (load-theme 'atom-one-dark-theme t)
 (load-theme 'monokai t)
 (set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#553")
 (setq mode-line-in-non-selected-windows nil)
@@ -190,11 +191,11 @@
                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
 
 ;; elm
+(add-to-list 'company-backends 'company-elm)
 (setq elm-format-on-save t)
 (with-eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-elm-setup))
 (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
-(add-to-list 'company-backends 'company-elm)
 
 ;; lisp
 (setq inferior-lisp-program "/usr/bin/sbcl")
