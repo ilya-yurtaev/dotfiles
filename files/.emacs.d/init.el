@@ -120,6 +120,8 @@
 
 ;; helm
 (helm-mode 1)
+(recentf-mode 1)
+(setq-default recent-save-file "~/.emacs.d/recentf")
 (setq helm-fuzzy-match t)
 (setq helm-completion-in-region-fuzzy-match t)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
@@ -164,6 +166,9 @@
 ;; forth
 (autoload 'forth-mode "gforth.el")
 (setq auto-mode-alist (cons '("\\.fs\\'" . forth-mode) auto-mode-alist))
+
+;; c/c++
+(modern-c++-font-lock-global-mode t)
 
 ;; haskell
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)

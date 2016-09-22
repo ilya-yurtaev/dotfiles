@@ -61,6 +61,7 @@
 (depends-on "helm-ls-git")
 (depends-on "helm-ls-hg")
 (depends-on "helm-mode-manager")
+(depends-on "hindent")
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
 (depends-on "intero")
