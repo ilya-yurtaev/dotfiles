@@ -26,6 +26,7 @@
 (depends-on "edts")
 (depends-on "el-get")
 (depends-on "elm-mode")
+(depends-on "elpy")
 (depends-on "emmet-mode")
 (depends-on "erlang")
 (depends-on "ess")

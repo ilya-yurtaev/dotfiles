@@ -234,8 +234,10 @@
 (setq web-mode-code-indent-offset 2)
 
 ;; python
+(elpy-enable)
 (add-hook 'python-mode-hook
           (function (lambda ()
+                      (highlight-indentation-mode 0)
                       (setq python-indent 4)
                       (setq evil-shift-width 4))))
 (setq python-shell-interpreter "ipython"
@@ -286,6 +288,9 @@
  '(custom-safe-themes
    (quote
     ("c567c85efdb584afa78a1e45a6ca475f5b55f642dfcd6277050043a568d1ac6f" default)))
+ '(elpy-modules
+   (quote
+    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults)))
  '(evil-shift-width 2)
  '(fci-rule-color "#49483E")
  '(haskell-process-auto-import-loaded-modules t)
