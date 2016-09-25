@@ -31,7 +31,7 @@ noremap D :tabonly<cr>
 map > :fo<cr>
 map < :ba<cr>
 
-autocmd LocationChange .* :js modes.passAllKeys = /newsblur\.com|mail\.google\.com|www\.artlebedev\.ru|www.\.google\.ru\/reader|www\.google\.com\/reader\/view|docker\.com\/tryit/.test(buffer.URL)
+autocmd LocationChange .* :js modes.passAllKeys = /duolingo\.com|newsblur\.com|mail\.google\.com|www\.artlebedev\.ru|www.\.google\.ru\/reader|www\.google\.com\/reader\/view|docker\.com\/tryit/.test(buffer.URL)
 
 "javascript to hide statusbar
 "   noremap <silent> <F8> :js toggle_bottombar()<CR>
