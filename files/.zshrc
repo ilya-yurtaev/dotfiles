@@ -21,7 +21,7 @@ ZSH_THEME="blinks"
 #COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(composer extract npm nvm pip rbenv stack vi-mode)
+plugins=(composer extract pip rbenv stack vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,7 +79,7 @@ source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
 
 alias :r="source ~/.zshrc" 
 alias :q="exit"
-alias apt="sudo aptitude"
+alias apt="sudo apt-fast"
 alias cls="clear"
 alias emacs='emacsclient -a "emacsclient -c" -F "((fullscreen . maximized))"'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
@@ -128,3 +128,6 @@ export PATH=$PATH:$GOPATH/bin
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export NVM_DIR="/home/ilya/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

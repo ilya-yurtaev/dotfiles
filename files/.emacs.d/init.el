@@ -254,6 +254,11 @@
 (setq org-log-repeat 'note)
 (setq diary-file "~/org/diary")
 
+;; calendar
+(setq calendar-time-zone 300)
+(setq calendar-week-start-day 1)
+(setq calendar-date-style "european")
+
 ;; keys
 (global-set-key (kbd "<f2>") 'save-buffer)
 (global-set-key (kbd "S-M-<left>") 'shrink-window-horizontally)
@@ -318,6 +323,9 @@
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "node_modules" "bower_components")))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
