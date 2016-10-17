@@ -54,8 +54,8 @@ export LS_OPTIONS='--color=always'
 export ZLS_COLORS=LS_COLORS
 eval "`dircolors`"
 #export EDITOR="gvim --remote-tab-silent"
-export EDITOR='emacsclient'
-export VISUAL='emacsclient -a "emacsclient -t"'
+export EDITOR='emacsclient --no-wait'
+export VISUAL='emacsclient -a --no-wait "emacsclient -t --no-wait"'
 export TERM=xterm-256color
 export PAGER=less
 [[ $EMACS = t ]] && unsetopt zle
@@ -81,7 +81,7 @@ alias :r="source ~/.zshrc"
 alias :q="exit"
 alias apt="sudo apt-fast"
 alias cls="clear"
-alias emacs='emacsclient -a "emacsclient -c" -F "((fullscreen . maximized))"'
+alias emacs='emacsclient --quiet --no-wait -a "emacsclient -c --no-wait" -F "((fullscreen . maximized))"'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 # alias ll='ls -l'
 # alias l="ls $LS_OPTIONS -lA `echo $1` | less"
