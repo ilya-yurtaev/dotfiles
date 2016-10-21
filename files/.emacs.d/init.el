@@ -181,6 +181,11 @@
 (setq haskell-tags-on-save t)
 
 
+;; scss
+(require 'scss-mode)
+
+
+
 (eval-after-load 'haskell-mode '(progn
                                   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
                                   (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
@@ -326,6 +331,7 @@
  '(projectile-globally-ignored-directories
    (quote
     (".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "node_modules" "bower_components")))
+ '(scss-compile-at-save nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote

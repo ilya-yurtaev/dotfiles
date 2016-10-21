@@ -102,6 +102,7 @@
 (depends-on "rainbow-mode")
 (depends-on "ruby-tools")
 (depends-on "s")
+(depends-on "scss-mode")
 (depends-on "shm")
 (depends-on "slime")
 (depends-on "smartparens")
