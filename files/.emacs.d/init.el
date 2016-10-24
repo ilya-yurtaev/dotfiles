@@ -274,6 +274,7 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key (kbd "<f10>") 'kill-this-buffer)
 
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/todos.org" "Tasks")
