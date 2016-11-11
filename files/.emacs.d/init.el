@@ -266,6 +266,7 @@
 (setq calendar-date-style "european")
 
 ;; keys
+(global-set-key (kbd "<f1>") 'save-buffer)
 (global-set-key (kbd "<f2>") 'save-buffer)
 (global-set-key (kbd "S-M-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
