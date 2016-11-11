@@ -84,6 +84,7 @@
 (depends-on "nasm-mode")
 (depends-on "neotree")
 (depends-on "nodejs-repl")
+(depends-on "org-agenda-property")
 (depends-on "org-alert")
 (depends-on "package-build")
 (depends-on "pallet")

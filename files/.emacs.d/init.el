@@ -65,6 +65,7 @@
           (lambda ()
             (delete-trailing-whitespace)
             nil))
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
 (paredit-everywhere-mode)
@@ -244,6 +245,7 @@
           (function (lambda ()
                       (highlight-indentation-mode 0)
                       (setq python-indent 4)
+                      (local-set-key (kbd "M-.") 'elpy-goto-definition)
                       (setq evil-shift-width 4))))
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "-i")
@@ -320,6 +322,7 @@
      ("#F309DF" . 85)
      ("#49483E" . 100))))
  '(magit-diff-use-overlays nil)
+ '(neo-theme (quote ascii))
  '(org-agenda-files
    (quote
     ("~/org/journal.org" "~/org/todos.org" "~/org/daily.org")))
