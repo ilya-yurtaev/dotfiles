@@ -44,7 +44,7 @@ compinit
 export LANG=ru_RU.UTF-8
 
 
-setopt appendhistory sharehistory hist_verify hist_ignore_all_dups hist_expire_dups_first hist_find_no_dups hist_ignore_space hist_reduce_blanks 
+setopt appendhistory sharehistory hist_verify hist_ignore_all_dups hist_expire_dups_first hist_find_no_dups hist_ignore_space hist_reduce_blanks
 setopt extendedglob
 
 setopt auto_cd correct_all
@@ -77,7 +77,7 @@ zmodload zsh/mathfunc
 
 source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
 
-alias :r="source ~/.zshrc" 
+alias :r="source ~/.zshrc"
 alias :q="exit"
 alias apt="sudo apt-fast"
 alias cls="clear"
@@ -129,5 +129,5 @@ export PATH=$PATH:$GOPATH/bin
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export NVM_DIR="/home/ilya/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
