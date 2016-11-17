@@ -160,6 +160,9 @@
   (setq flycheck-indication-mode nil))
 (add-hook 'after-init-hook #'global-ycmd-mode)
 
+;; ggtags
+;; (ggtags-global-mode)
+
 ;; config types
 (add-to-list 'auto-mode-alist '("\\.*rc$" . conf-mode))
 
