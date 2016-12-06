@@ -76,6 +76,7 @@
                (enable-paredit-mode))))
 
 ;; backups, locks and tmp
+(setq auto-save-default nil)
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms
