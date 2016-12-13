@@ -28,4 +28,5 @@ dfNames:
 - ~/.vimperatorrc
 - ~/.vimrc
 - ~/.xinitrc
+- ~/.xmonad/xmonad.hs
 - ~/.zshrc
