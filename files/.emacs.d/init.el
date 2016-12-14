@@ -175,9 +175,9 @@
 (modern-c++-font-lock-global-mode t)
 
 ;; haskell
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'structured-haskell-mode)
-;; (add-hook 'haskell-mode-hook 'intero-mode)
+;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 ;; (autoload 'ghc-init "stack ghc" nil t)
 ;; (autoload 'ghc-debug "stack ghc" nil t)
@@ -247,7 +247,7 @@
 (add-hook 'python-mode-hook
           (function (lambda ()
                       (highlight-indentation-mode 0)
-                      (setq python-indent 4)
+                      (setq python-indent-offset 4)
                       (local-set-key (kbd "M-.") 'elpy-goto-definition)
                       (setq evil-shift-width 4))))
 (setq python-shell-interpreter "ipython"
