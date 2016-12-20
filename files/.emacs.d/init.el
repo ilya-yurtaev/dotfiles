@@ -269,6 +269,11 @@
 (setq calendar-week-start-day 1)
 (setq calendar-date-style "european")
 
+;; snippets
+(require 'yasnippet)
+(global-set-key (kbd "H-w") 'create-auto-yasnippet)
+(global-set-key (kbd "H-y") 'expand-auto-yasnippet)
+
 ;; keys
 (global-set-key (kbd "<f1>") 'save-buffer)
 (global-set-key (kbd "<f2>") 'save-buffer)
@@ -368,9 +373,3 @@
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
    (unspecified "#272822" "#49483E" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
