@@ -26,4 +26,3 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi
-if [ -e /home/iyurtaev/.nix-profile/etc/profile.d/nix.sh ]; then . /home/iyurtaev/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
