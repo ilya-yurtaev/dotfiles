@@ -3,6 +3,7 @@
 
 (depends-on "async")
 (depends-on "atom-one-dark-theme")
+(depends-on "auto-complete")
 (depends-on "auto-yasnippet")
 (depends-on "bind-key")
 (depends-on "cask")
@@ -106,6 +107,7 @@
 (depends-on "racket-mode")
 (depends-on "rainbow-delimiters")
 (depends-on "rainbow-mode")
+(depends-on "request")
 (depends-on "ruby-tools")
 (depends-on "s")
 (depends-on "scss-mode")

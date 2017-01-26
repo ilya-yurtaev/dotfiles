@@ -3,6 +3,7 @@ dfNames:
 - ~/.FBReader/config.changes
 - ~/.Xresources
 - ~/.compiz/default.profile
+- ~/.config/synapse/config.json
 - ~/.config/systemd/user/emacs.service
 - ~/.conkyrc
 - ~/.dotconfig.yml

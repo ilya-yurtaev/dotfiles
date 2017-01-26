@@ -58,6 +58,8 @@ export EDITOR='emacsclient --no-wait'
 export VISUAL='emacsclient -a --no-wait "emacsclient -t --no-wait"'
 export TERM=xterm-256color
 export PAGER=less
+export NUMCPUS=`grep -c '^processor' /proc/cpuinfo`
+export MAKEFLAGS=j
 [[ $EMACS = t ]] && unsetopt zle
 
 setopt MENUCOMPLETE
@@ -129,5 +131,5 @@ export PATH=$PATH:$GOPATH/bin
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR=$HOME/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
