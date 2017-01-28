@@ -53,8 +53,8 @@
 (set-face-bold 'bold nil)
 (set-face-italic 'italic nil)
 ;; background transparency
-(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
-(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+(set-frame-parameter (selected-frame) 'alpha '(90 . 50))
+(add-to-list 'default-frame-alist '(alpha . (90 . 50)))
 
 ;; shell
 (setq system-uses-terminfo nil)
