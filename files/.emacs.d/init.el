@@ -190,9 +190,9 @@
 ;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (add-hook 'haskell-mode-hook 'intero-mode)
 
-;; (autoload 'ghc-init "stack ghc" nil t)
-;; (autoload 'ghc-debug "stack ghc" nil t)
-;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;(autoload 'ghc-init "stack ghc" nil t)
+;(autoload 'ghc-debug "stack ghc" nil t)
+;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (setq haskell-tags-on-save t)
 
 
