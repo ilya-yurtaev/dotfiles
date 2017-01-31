@@ -193,7 +193,7 @@
 
 ;; haskell
 ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (add-hook 'haskell-mode-hook 'intero-mode)
 
 ;(autoload 'ghc-init "stack ghc" nil t)
@@ -201,6 +201,10 @@
 ;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (setq haskell-tags-on-save t)
 
+;; emmet
+(add-hook 'sgml-mode-hook 'emmet-mode)
+(add-hook 'css-mode-hook  'emmet-mode)
+(setq emmet-self-closing-tag-style " /")
 
 ;; scss
 (require 'scss-mode)
