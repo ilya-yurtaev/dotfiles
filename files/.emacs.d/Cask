@@ -73,6 +73,7 @@
 (depends-on "idle-highlight-mode")
 (depends-on "intero")
 (depends-on "irony")
+(depends-on "ivy")
 (depends-on "jedi")
 (depends-on "jedi-core")
 (depends-on "jedi-direx")
