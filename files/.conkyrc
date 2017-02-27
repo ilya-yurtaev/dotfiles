@@ -32,7 +32,7 @@ xftalpha 0.1
 # MPD host/port
 mpd_host localhost
 mpd_port 6600
-#mpd_password 
+#mpd_password
 
 # Print everything to console?
 # out_to_console no
@@ -50,7 +50,7 @@ total_run_times 0
 own_window yes
 own_window_argb_visual yes
 own_window_type normal
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager 
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_transparent yes
 
 
@@ -99,8 +99,8 @@ minimum_size 350
 text_buffer_size 2048
 # Gap between borders of screen and text
 # same thing as passing -x at command line
-gap_x 25 
-gap_y 50 
+gap_x 25
+gap_y 50
 
 # Subtract file system buffers from used memory?
 no_buffers yes
@@ -140,8 +140,8 @@ use_spacer right
 # stuff because of an argument
 format_human_readable yes
 
-#${color lightgrey}/usr:  ${fs_free /usr}/${fs_size /usr}  ${color #add8e6} ${fs_bar /usr} 
-#${color lightgrey}/var:  ${fs_free /var}/${fs_size /var}  ${color #add8e6} ${fs_bar /var} 
+#${color lightgrey}/usr:  ${fs_free /usr}/${fs_size /usr}  ${color #add8e6} ${fs_bar /usr}
+#${color lightgrey}/var:  ${fs_free /var}/${fs_size /var}  ${color #add8e6} ${fs_bar /var}
 # stuff after 'TEXT' will be formatted on screen
 #
 # ${color lightgrey}Swap:  $swap/$swapmax ${color #005588}$swapperc% ${swapbar}
@@ -155,7 +155,8 @@ ${color lightgrey}CPU:   ${color #ff8800} ${cpu cpu0}% (${acpitemp}°C) ${cpubar
 ${color red}${cpugraph 23 ff8800 ff3517}
 ${color lightgrey}RAM:   $mem/$memmax ${color #558800}$memperc% ${membar}
 ${color lightgrey}Battery: ${color red}${alignr} ${battery_percent BAT0}% ${battery_bar 5,150 BAT0}
-${color lightgrey}/:     ${fs_free /}/${fs_size /}  ${color #add8e6} ${fs_bar /} 
+${color lightgrey}/:     ${fs_free /}/${fs_size /}  ${color #add8e6} ${fs_bar /}
+${color lightgrey}/home:     ${fs_free /home}/${fs_size /home}  ${color #add8e6} ${fs_bar /home}
 
 ${color lightgrey}Processes: $color $processes  ${color grey}Running:$color $running_processes
 
