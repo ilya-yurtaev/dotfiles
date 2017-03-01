@@ -1,5 +1,5 @@
 (source "gnu" "http://elpa.gnu.org/packages/")
-(source "melpa" "http://melpa.org/packages/")
+(source "melpa-stable" "http://stable.melpa.org/packages/")
 
 (depends-on "async")
 (depends-on "atom-one-dark-theme")
@@ -87,6 +87,7 @@
 (depends-on "jsx-mode")
 (depends-on "julia-mode")
 (depends-on "key-chord")
+(depends-on "lua-mode")
 (depends-on "magit")
 (depends-on "magit-popup")
 (depends-on "markdown-mode")
