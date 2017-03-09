@@ -82,7 +82,6 @@ source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
 alias :r="source ~/.zshrc"
 alias :q="exit"
 alias apt="sudo apt-fast"
-alias cls="clear"
 alias emacs='emacsclient --quiet --no-wait -a "emacsclient -c --no-wait" -F "((fullscreen . maximized))"'
 alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 # alias ll='ls -l'
@@ -112,6 +111,7 @@ alias ghci-sandbox="ghci -no-user-package-db -package-db .cabal-sandbox/*-packag
 alias runhaskell-sandbox="runhaskell -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d"
 alias history="history | less"
 alias cabal_upgrade="cabal list --simple-output --installed | gawk '{print $1}' | uniq | xargs -I {} cabal install {} --reinstall"
+alias info="info --vi-keys"
 
 
 export PS2='%_>'
