@@ -30,3 +30,5 @@ if [ -d "$HOME/.luarocks/bin" ] ; then
 fi
 
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
