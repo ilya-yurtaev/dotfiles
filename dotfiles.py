@@ -53,11 +53,7 @@ def command_registry(cls):
 
     def dispatch(app):
         args = sys.argv[1:]
-        cmd = 'help'
-        params = []
-
-        if args:
-            cmd, params = args[0], args[1:]
+        cmd, params = args[0], args[1:] if args else 'help', []
 
         getattr(app, cmd if cmd in app.registry.keys() else 'help')(*params)
 
