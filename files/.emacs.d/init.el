@@ -10,6 +10,8 @@
 (require 'pallet)
 (pallet-mode t)
 
+(defvar tramp-file-name-regexp "\\`/\\([^[/:]+\\|[^/]+]\\):")
+
 (exec-path-from-shell-initialize)
 
 (toggle-frame-maximized)
@@ -190,7 +192,7 @@
 
 ;; haskell
 ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (add-hook 'haskell-mode-hook 'intero-mode)
 
 ;(autoload 'ghc-init "stack ghc" nil t)
