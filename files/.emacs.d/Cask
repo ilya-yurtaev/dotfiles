@@ -123,6 +123,7 @@
 (depends-on "smex")
 (depends-on "solarized-theme")
 (depends-on "spinner")
+(depends-on "sqlup-mode")
 (depends-on "sr-speedbar")
 (depends-on "turnip")
 (depends-on "typed-clojure-mode")
