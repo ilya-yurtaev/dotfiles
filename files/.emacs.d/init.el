@@ -60,8 +60,8 @@
 ;; (global-fci-mode 1)
 
 ;; background transparency
-(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
-(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
+(set-frame-parameter (selected-frame) 'alpha '(95 . 80))
+(add-to-list 'default-frame-alist '(alpha . (95 . 80)))
 
 ;; shell
 (setq system-uses-terminfo nil)
@@ -156,6 +156,7 @@
 (setq neo-smart-open t)
 (setq neo-theme 'ascii)
 (global-set-key (kbd "<f12>") 'neotree-toggle)
+(define-key evil-normal-state-local-map (kbd "M-.") 'elpy-goto-definition)
 (add-hook 'neotree-mode-hook
           (lambda ()
             (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
