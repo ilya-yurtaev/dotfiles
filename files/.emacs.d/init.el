@@ -122,6 +122,7 @@
   "cv" 'evilnc-toggle-invert-comment-line-by-line
   )
 (global-evil-surround-mode 1)
+(define-key evil-normal-state-map (kbd "M-.") 'elpy-goto-definition)
 
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 
@@ -156,7 +157,6 @@
 (setq neo-smart-open t)
 (setq neo-theme 'ascii)
 (global-set-key (kbd "<f12>") 'neotree-toggle)
-(define-key evil-normal-state-local-map (kbd "M-.") 'elpy-goto-definition)
 (add-hook 'neotree-mode-hook
           (lambda ()
             (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
