@@ -20,6 +20,8 @@ source! /home/iyurtaev/.vimperatorrc.local
 map пе gt
 map пЕ gT
 
+map Б <
+map Ю >
 map Ф A
 map И B
 map С C
