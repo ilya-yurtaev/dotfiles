@@ -90,7 +90,6 @@ alias l="ls -laih"
 alias ll="ls -la | less"
 # l(){ ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc" $6 | sort | less }
 alias rm='rm -i'
-alias docker='sudo docker'
 alias gvim='gvim --remote-tab-silent'
 alias zshrc='vim ~/.zshrc'
 alias tmux='tmux attach || tmux -u'
