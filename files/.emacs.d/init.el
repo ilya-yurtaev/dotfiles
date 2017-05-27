@@ -11,6 +11,7 @@
 (pallet-mode t)
 
 (defvar tramp-file-name-regexp "\\`/\\([^[/:]+\\|[^/]+]\\):")
+(setq ring-bell-function 'ignore)
 
 (exec-path-from-shell-initialize)
 
@@ -60,8 +61,8 @@
 ;; (global-fci-mode 1)
 
 ;; background transparency
-(set-frame-parameter (selected-frame) 'alpha '(95 . 50))
-(add-to-list 'default-frame-alist '(alpha . (95 . 50)))
+(set-frame-parameter (selected-frame) 'alpha '(95 . 80))
+(add-to-list 'default-frame-alist '(alpha . (95 . 80)))
 
 ;; shell
 (setq system-uses-terminfo nil)

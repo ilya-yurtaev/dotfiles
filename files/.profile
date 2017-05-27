@@ -32,3 +32,4 @@ fi
 if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+if [ -e /home/ilya/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ilya/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
