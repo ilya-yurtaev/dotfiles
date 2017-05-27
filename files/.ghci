@@ -1,14 +1,9 @@
 -- :set -XOverloadedStrings
-:set -fobject-code
 :m - Prelude
 :m + GOA
-
-let ghciEscapeShellArg arg = "'" ++ concatMap (\x -> if x == '\'' then "'\"'\"'" else [x]) arg ++ "'"
-:def! search return . (":! hoogle --color --count=20 " ++) . ghciEscapeShellArg
-:def! doc return . (":! hoogle --info " ++) . ghciEscapeShellArg
 
 :set +t
 :set +m
 :set -XNoMonomorphismRestriction
-
+:set -fobject-code
 :set prompt "\ESC[32mλ→ \ESC[m"
