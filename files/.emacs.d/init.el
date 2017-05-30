@@ -11,6 +11,7 @@
 (pallet-mode t)
 
 (defvar tramp-file-name-regexp "\\`/\\([^[/:]+\\|[^/]+]\\):")
+(setq ring-bell-function 'ignore)
 
 (exec-path-from-shell-initialize)
 
