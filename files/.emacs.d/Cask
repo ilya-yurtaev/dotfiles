@@ -1,5 +1,8 @@
 (source "gnu" "http://elpa.gnu.org/packages/")
+(source "melpa" "http://melpa.org/packages/")
 (source "melpa-stable" "http://stable.melpa.org/packages/")
+(source "elpa" "http://tromey.com/elpa/")
+(source "maramlade" "http://marmalade-repo.org/packages/")
 
 (depends-on "async")
 (depends-on "atom-one-dark-theme")
