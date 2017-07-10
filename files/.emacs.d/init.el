@@ -268,6 +268,9 @@
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 
+;; rust
+(setq rust-format-on-save t)
+
 ;; python
 (elpy-enable)
 (add-hook 'python-mode-hook
@@ -352,7 +355,7 @@
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults)))
  '(evil-shift-width 2)
- '(fci-rule-color "#49483E")
+ '(fci-rule-color "#3C3D37")
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
@@ -360,14 +363,14 @@
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
  '(highlight-tail-colors
    (quote
-    (("#49483E" . 0)
+    (("#3C3D37" . 0)
      ("#679A01" . 20)
      ("#4BBEAE" . 30)
      ("#1DB4D0" . 50)
      ("#9A8F21" . 60)
      ("#A75B00" . 70)
      ("#F309DF" . 85)
-     ("#49483E" . 100))))
+     ("#3C3D37" . 100))))
  '(magit-diff-use-overlays nil)
  '(neo-theme (quote ascii))
  '(org-agenda-files
@@ -379,7 +382,7 @@
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (flycheck-rust sqlup-mode rust-mode lua-mode projectile async company dockerfile-mode irony js2-mode django-mode multiple-cursors base16-theme julia-mode pyvenv dash erlang evil haskell-mode ivy buffer-move faceup git-commit magit-popup php-mode auto-complete cider clojure-mode flycheck helm helm-core jedi-core magit request with-editor yasnippet yaml-mode yagist writeroom-mode web-mode web-beautify use-package typed-clojure-mode turnip sr-speedbar solarized-theme smex smartparens slime shm scss-mode ruby-tools rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-speedbar project-explorer prodigy powerline popwin paredit-everywhere pallet org-alert org-agenda-property nodejs-repl nginx-mode neotree nasm-mode monokai-theme markdown-mode key-chord jsx-mode json-mode js3-mode js2-refactor jedi-direx intero idle-highlight-mode htmlize hindent helm-projectile helm-mode-manager helm-ls-hg helm-ls-git helm-gtags helm-ghc go-mode gnus-desktop-notify ggtags geiser flycheck-ycmd flycheck-irony flycheck-ghcmod flycheck-dialyzer flycheck-cask flx-ido expand-region exec-path-from-shell evil-surround evil-paredit evil-org evil-nerd-commenter evil-magit esup ess emmet-mode elpy elm-mode el-get edts ediprolog drupal-mode drag-stuff ctags company-ycmd company-web company-jedi company-irony company-ghci company-ghc color-theme-sanityinc-tomorrow coffee-mode clojure-mode-extra-font-locking clang-format auto-yasnippet atom-one-dark-theme)))
+    (ghc org undo-tree ycmd flycheck-rust sqlup-mode rust-mode lua-mode projectile async company dockerfile-mode irony js2-mode django-mode multiple-cursors base16-theme julia-mode pyvenv dash erlang evil haskell-mode ivy buffer-move faceup git-commit magit-popup php-mode auto-complete cider clojure-mode flycheck helm helm-core jedi-core magit request with-editor yasnippet yaml-mode yagist writeroom-mode web-mode web-beautify use-package typed-clojure-mode turnip sr-speedbar solarized-theme smex smartparens slime shm scss-mode ruby-tools rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-speedbar project-explorer prodigy powerline popwin paredit-everywhere pallet org-alert org-agenda-property nodejs-repl nginx-mode neotree nasm-mode monokai-theme markdown-mode key-chord jsx-mode json-mode js3-mode js2-refactor jedi-direx intero idle-highlight-mode htmlize hindent helm-projectile helm-mode-manager helm-ls-hg helm-ls-git helm-gtags helm-ghc go-mode gnus-desktop-notify ggtags geiser flycheck-ycmd flycheck-irony flycheck-ghcmod flycheck-dialyzer flycheck-cask flx-ido expand-region exec-path-from-shell evil-surround evil-paredit evil-org evil-nerd-commenter evil-magit esup ess emmet-mode elpy elm-mode el-get edts ediprolog drupal-mode drag-stuff ctags company-ycmd company-web company-jedi company-irony company-ghci company-ghc color-theme-sanityinc-tomorrow coffee-mode clojure-mode-extra-font-locking clang-format auto-yasnippet atom-one-dark-theme)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(projectile-globally-ignored-directories
@@ -409,7 +412,7 @@
      (360 . "#66D9EF"))))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
-   (unspecified "#272822" "#49483E" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
+   (unspecified "#272822" "#3C3D37" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

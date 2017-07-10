@@ -135,6 +135,7 @@
 (depends-on "sr-speedbar")
 (depends-on "turnip")
 (depends-on "typed-clojure-mode")
+(depends-on "undo-tree")
 (depends-on "use-package")
 (depends-on "web-beautify")
 (depends-on "web-mode")
