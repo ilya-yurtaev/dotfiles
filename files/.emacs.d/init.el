@@ -241,6 +241,7 @@
                       (setq evil-shift-width 2))))
 
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ejs$" . web-mode))
 
 (setq-default flycheck-disabled-checkers
               (append flycheck-disabled-checkers
