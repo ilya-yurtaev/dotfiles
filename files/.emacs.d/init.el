@@ -24,6 +24,7 @@
 ;; (load-theme 'solarized-dark t)
 ;; (load-theme 'atom-one-dark-theme t)
 (load-theme 'monokai t)
+(setq-default mode-line-format nil)
 (set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#553")
 (setq mode-line-in-non-selected-windows nil)
 (setq font-lock-maximum-decoration 1)
@@ -299,8 +300,9 @@
 
 ;; snippets
 (require 'yasnippet)
+(yas-global-mode t)
 (global-set-key (kbd "H-w") 'create-auto-yasnippet)
-(global-set-key (kbd "H-y") 'expand-auto-yasnippet)
+(global-set-key (kbd "C-y") 'expand-auto-yasnippet)
 
 ;; magit
 (global-magit-file-mode)
@@ -309,7 +311,7 @@
 
 ;; keys
 (global-set-key (kbd "<f1>") 'save-buffer)
-(global-set-key [f2] 'save-buffer)
+(global-set-key (kbd "<f2>") 'save-buffer)
 (global-set-key (kbd "S-M-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "S-M-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-M-<down>") 'shrink-window)
