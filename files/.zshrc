@@ -134,3 +134,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR=$HOME/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# OPAM configuration
+. /home/ilya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
