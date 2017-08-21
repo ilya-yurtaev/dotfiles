@@ -17,8 +17,7 @@
 ;; (add-to-list 'display-buffer-alist
 ;;              '("^[^\\*].*[^\\*]$" display-buffer-same-window) t)
 
-;; look
-(setq frame-title-format "%b — Emacs")
+(setq frame-title-format "%b >>= Emacs")
 ;; (load-theme 'base16-greenscreen-dark t)
 ;; (load-theme 'base16-default-dark t)
 ;; (load-theme 'solarized-dark t)
@@ -192,6 +191,8 @@
 ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 ;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 (add-hook 'haskell-mode-hook 'intero-mode)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
 ;(autoload 'ghc-init "stack ghc" nil t)
 ;(autoload 'ghc-debug "stack ghc" nil t)
@@ -279,6 +280,7 @@
                       (setq evil-shift-width 4))))
 (setq python-shell-interpreter "ipython"
       python-shell-interpreter-args "--simple-prompt -i")
+(setq elpy-rpc-timeout nil)
 
 ;; org mode
 (require 'org-alert)
@@ -325,6 +327,9 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key (kbd "<f10>") 'kill-this-buffer)
+
+;; misc
+(advice-add 'describe-mode :after '(lambda (&rest args) (call-interactively 'other-window)))
 
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/todos.org" "Tasks")
@@ -389,7 +394,7 @@
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (flycheck-haskell helm-ag ghc org undo-tree ycmd flycheck-rust sqlup-mode rust-mode lua-mode projectile async company dockerfile-mode irony js2-mode django-mode multiple-cursors base16-theme julia-mode pyvenv dash erlang evil haskell-mode ivy buffer-move faceup git-commit magit-popup php-mode auto-complete cider clojure-mode flycheck helm helm-core jedi-core magit request with-editor yasnippet yaml-mode yagist writeroom-mode web-mode web-beautify use-package typed-clojure-mode turnip sr-speedbar solarized-theme smex smartparens slime shm scss-mode ruby-tools rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-speedbar project-explorer prodigy powerline popwin paredit-everywhere pallet org-alert org-agenda-property nodejs-repl nginx-mode neotree nasm-mode monokai-theme markdown-mode key-chord jsx-mode json-mode js3-mode js2-refactor jedi-direx intero idle-highlight-mode htmlize hindent helm-projectile helm-mode-manager helm-ls-hg helm-ls-git helm-gtags helm-ghc go-mode gnus-desktop-notify ggtags geiser flycheck-ycmd flycheck-irony flycheck-ghcmod flycheck-dialyzer flycheck-cask flx-ido expand-region exec-path-from-shell evil-surround evil-paredit evil-org evil-nerd-commenter evil-magit esup ess emmet-mode elpy elm-mode el-get edts ediprolog drupal-mode drag-stuff ctags company-ycmd company-web company-jedi company-irony company-ghci company-ghc color-theme-sanityinc-tomorrow coffee-mode clojure-mode-extra-font-locking clang-format auto-yasnippet atom-one-dark-theme)))
+    (queue helm-ag ghc org undo-tree ycmd flycheck-rust sqlup-mode rust-mode lua-mode projectile async company dockerfile-mode irony js2-mode django-mode multiple-cursors base16-theme julia-mode pyvenv dash erlang evil haskell-mode ivy buffer-move faceup git-commit magit-popup php-mode auto-complete cider clojure-mode flycheck helm helm-core jedi-core magit request with-editor yasnippet yaml-mode yagist writeroom-mode web-mode web-beautify use-package typed-clojure-mode turnip sr-speedbar solarized-theme smex smartparens slime shm scss-mode ruby-tools rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-speedbar project-explorer prodigy powerline popwin paredit-everywhere pallet org-alert org-agenda-property nodejs-repl nginx-mode neotree nasm-mode monokai-theme markdown-mode key-chord jsx-mode json-mode js3-mode js2-refactor jedi-direx intero idle-highlight-mode htmlize hindent helm-projectile helm-mode-manager helm-ls-hg helm-ls-git helm-gtags helm-ghc go-mode gnus-desktop-notify ggtags geiser flycheck-ycmd flycheck-irony flycheck-ghcmod flycheck-dialyzer flycheck-cask flx-ido expand-region exec-path-from-shell evil-surround evil-paredit evil-org evil-nerd-commenter evil-magit esup ess emmet-mode elpy elm-mode el-get edts ediprolog drupal-mode drag-stuff ctags company-ycmd company-web company-jedi company-irony company-ghci company-ghc color-theme-sanityinc-tomorrow coffee-mode clojure-mode-extra-font-locking clang-format auto-yasnippet atom-one-dark-theme)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(projectile-globally-ignored-directories

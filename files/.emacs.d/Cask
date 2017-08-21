@@ -117,6 +117,7 @@
 (depends-on "py-autopep8")
 (depends-on "python-mode")
 (depends-on "pyvenv")
+(depends-on "queue")
 (depends-on "racket-mode")
 (depends-on "rainbow-delimiters")
 (depends-on "rainbow-mode")
