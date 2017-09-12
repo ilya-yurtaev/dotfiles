@@ -1,6 +1,7 @@
 (source "gnu" "http://elpa.gnu.org/packages/")
 (source "melpa-stable" "http://stable.melpa.org/packages/")
 
+(depends-on "anaconda-mode")
 (depends-on "async")
 (depends-on "atom-one-dark-theme")
 (depends-on "auto-complete")

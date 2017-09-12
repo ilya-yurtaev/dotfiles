@@ -97,7 +97,7 @@ alias tmuxrc='vim ~/.tmux.conf'
 #alias python="python -Werror"
 alias runserver="DJANGO_DEBUG=1 python manage.py runserver 127.0.0.1:8080"
 alias gruntserver="DJANGO_DEBUG=1 python manage.py gruntserver 127.0.0.1:8080"
-alias smtpserv="python -m smtpd --debug -n -c DebuggingServer localhost:1025"
+alias smtpserv="python -m smtpd --debug -n -c DebuggingServer localhost:1026"
 alias mkmsgs="python manage.py makemessages"
 alias cmplmsgs="python manage.py compilemessages"
 alias django_update="cd ~/sources/django-git && git pull && cd docs && make html"

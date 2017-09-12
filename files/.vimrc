@@ -226,7 +226,7 @@ if has("gui_running")
 
     " gtk specific
   elseif has('gui_gtk2')
-    se guifont=Ubuntu\ Mono\ 14
+    se guifont=Ubuntu\ Mono\ 16
     au GUIEnter * :set lines=99999 columns=99999
     map ,ff :update<CR>:!firefox file://"%:p"<CR><CR>
     map ,ch :update<CR>:!chrome file://"%:p"<CR>
