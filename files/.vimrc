@@ -132,10 +132,10 @@ set autoindent
 set autoread
 set background=dark
 set backspace=indent,eol,start whichwrap+=<,>,[,]
-set backupdir=$HOME/tmp
-set directory=$HOME/tmp
+set backupdir=$TMPDIR
+set directory=$TMPDIR
 set undofile
-set undodir=$HOME/tmp
+set undodir=$TMPDIR
 set cmdheight=1
 set diffopt=vertical
 set encoding=utf-8
@@ -231,6 +231,9 @@ if has("gui_running")
     map ,ff :update<CR>:!firefox file://"%:p"<CR><CR>
     map ,ch :update<CR>:!chrome file://"%:p"<CR>
     nmap gs "gy:silent !firefox http://www.google.com/search?q=<c-r><c-w><cr>
+
+  elseif has('macunix')
+		se fu
   endif
 
 

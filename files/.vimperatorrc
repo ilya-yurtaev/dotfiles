@@ -1,6 +1,10 @@
 "3.16.0 (created: 2017/02/02 16:28:55)
 
-highlight StatusLine background: #acacac; color:#303030;  font-family:arial; font-weight:normal;padding:1px 5px 1px 1px;border:none;outline:none;
+highlight StatusLine font-family:sans-serif; color:#333; background: transparent; font-size:12px;font-weight:normal;padding:1px 5px 1px 1px;border:none;outline:none;
+highlight CompItem -append font:14px sans-serif;
+highlight CmdLine -append font:14px sans-serif;
+highlight CmdLine>* -append font:14px sans-serif;
+highlight CompTitle -append font:bold 14px sans-serif;
 highlight Hint -append font-size:11px;color:#000;background:#fc0;padding:0 5px;box-shadow:1px 1px 1px 1px #ccc;text-shadow:1px 1px 1px #fff;
 highlight HintElem background:transparent;
 imap <C-a> <Esc><C-v><C-a>

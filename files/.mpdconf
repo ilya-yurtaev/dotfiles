@@ -1,12 +1,13 @@
-music_directory           "~/Music"
-playlist_directory        "~/Music/playlists"
-db_file                   "~/.mpd/tag_cache"
-pid_file                  "~/.mpd/pid"
-state_file                "~/.mpd/state"
-log_file                  "~/.mpd/mpd.log"
+auto_update               "yes"
 bind_to_address           "localhost"
-port                      "6600"
+db_file                   "~/.mpd/tag_cache"
 follow_inside_symlinks    "yes"
+log_file                  "~/.mpd/mpd.log"
+music_directory           "~/Music"
+pid_file                  "~/.mpd/pid"
+playlist_directory        "~/.mpd/playlists"
+port                      "6600"
+state_file                "~/.mpd/state"
 
 
 input {
@@ -14,6 +15,7 @@ input {
 }
 
 audio_output {
-  type            "pulse"
-  name            "My Output"
+  type            "osx"
+  name            "Mac Output"
+  mixer_type      "software"
 }

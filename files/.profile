@@ -29,7 +29,9 @@ if [ -d "$HOME/.luarocks/bin" ] ; then
     PATH="$HOME/.luarocks/bin:$PATH"
 fi
 
-if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then . "$HOME/.nix-profile/etc/profile.d/nix.sh"; fi
+if [ -d "$HOME/.cargo/bin" ] ; then
+    PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
-if [ -e /home/ilya/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ilya/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+export LC_ALL=ru_RU.UTF-8
