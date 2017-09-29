@@ -129,6 +129,7 @@
 (depends-on "scss-mode")
 (depends-on "slime")
 (depends-on "smartparens")
+(depends-on "smooth-scrolling")
 (depends-on "smex")
 (depends-on "solarized-theme")
 (depends-on "spinner")
