@@ -21,7 +21,7 @@ ZSH_THEME="blinks"
 #COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(composer extract pip rbenv stack vi-mode)
+plugins=(brew cabal composer docker extract git kubectl pip rails rbenv ruby stack vi-mode zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,15 +50,15 @@ setopt extendedglob
 setopt auto_cd correct_all
 
 export CLICOLOR="xterm-color"
-export LS_OPTIONS='--color=always'
+#export LS_OPTIONS='--color=always'
 export ZLS_COLORS=LS_COLORS
-eval "`dircolors`"
+#eval "`dircolors`"
 #export EDITOR="gvim --remote-tab-silent"
 export EDITOR='emacsclient --no-wait'
 export VISUAL='emacsclient -a --no-wait "emacsclient -t --no-wait"'
 export TERM=xterm-256color
 export PAGER=less
-export NUMCPUS=`grep -c '^processor' /proc/cpuinfo`
+#export NUMCPUS=`grep -c '^processor' /proc/cpuinfo`
 export MAKEFLAGS=j
 [[ $EMACS = t ]] && unsetopt zle
 
@@ -77,13 +77,13 @@ bindkey -v
 zmodload -i zsh/complist
 zmodload zsh/mathfunc
 
-source /usr/share/virtualenvwrapper/virtualenvwrapper_lazy.sh
+source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 alias :r="source ~/.zshrc"
 alias :q="exit"
 alias apt="sudo apt-fast"
 alias emacs='emacsclient --quiet --no-wait -a "emacsclient -c --no-wait" -F "((fullscreen . maximized))"'
-alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
+#alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 # alias ll='ls -l'
 # alias l="ls $LS_OPTIONS -lA `echo $1` | less"
 alias l="ls -laih"
@@ -119,12 +119,12 @@ export MYSQL_PS1="\u@\h [\d]> "
 
 export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
 
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/local/bin;$PATH"
 export PATH="$HOME/.cask/bin:$PATH"
 export PATH="$HOME/.luarocks/bin:$PATH"
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
-
+export WORKON_HOME=~/.virtualenvs
 
 # export PATH="$HOME/.cabal/bin:$PATH"
 # export PATH="/opt/ghc/8.0.1/bin:$PATH"
@@ -133,8 +133,9 @@ export PATH=$PATH:$GOPATH/bin
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export NVM_DIR=$HOME/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # OPAM configuration
 . /home/ilya/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
