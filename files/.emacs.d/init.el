@@ -113,6 +113,8 @@
   )
 (global-evil-surround-mode 1)
 (define-key evil-normal-state-map (kbd "M-.") 'elpy-goto-definition)
+(define-key evil-normal-state-map (kbd "H") 'previous-buffer)
+(define-key evil-normal-state-map (kbd "L") 'next-buffer)
 
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 
