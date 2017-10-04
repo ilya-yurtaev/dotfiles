@@ -24,8 +24,12 @@
 ;; (load-theme 'atom-one-dark-theme t)
 (load-theme 'monokai t)
 (setq-default mode-line-format nil)
-(set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#553")
-(setq mode-line-in-non-selected-windows nil)
+;; (set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#553")
+;; (setq mode-line-in-non-selected-windows nil)
+;; (set-face-attribute 'mode-line-inactive nil
+;;                     :underline t
+;;                     :background (face-background 'default))
+;; (powerline-default-theme)
 (setq font-lock-maximum-decoration 1)
 (setq frame-background-mode 'dark)
 ;; (set-frame-font "Ubuntu Mono-14")
@@ -40,9 +44,6 @@
 (global-auto-revert-mode 1)
 (set-fringe-mode 0)
 (setq visible-bell nil)
-(set-face-attribute 'mode-line-inactive nil
-                    :underline t
-                    :background (face-background 'default))
 ;; (setq linum-format " %d ")
 (setq-default left-margin-width 1 right-margin-width 1)
 (set-window-buffer nil (current-buffer))
@@ -136,7 +137,7 @@
 (setq helm-completion-in-region-fuzzy-match t)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-mini)
 
 ;; projectile
 (projectile-global-mode)
