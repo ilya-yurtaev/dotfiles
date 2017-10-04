@@ -23,12 +23,6 @@
 ;; (load-theme 'solarized-dark t)
 ;; (load-theme 'atom-one-dark-theme t)
 (load-theme 'monokai t)
-;; (setq-default mode-line-format nil)
-;; (set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#553")
-;; (setq mode-line-in-non-selected-windows nil)
-;; (set-face-attribute 'mode-line-inactive nil
-;;                     :underline t
-;;                     :background (face-background 'default))
 (setq font-lock-maximum-decoration 1)
 (setq frame-background-mode 'dark)
 ;; (set-frame-font "Ubuntu Mono-14")
@@ -122,11 +116,18 @@
 
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 
-;; modeline
+;; mode-line
+(setq-default mode-line-format nil)
+;; (set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#553")
+;; (setq mode-line-in-non-selected-windows nil)
+;; (set-face-attribute 'mode-line-inactive nil
+;;                     :underline t
+;;                     :background (face-background 'default))
+
 ;; (setq sml/no-confirm-load-theme t)
 ;; (sml/setup)
 ;; (setq sml/theme 'dark)
-(telephone-line-evil-config)
+;; (telephone-line-evil-config)
 
 ;; ido
 (ido-mode 1)
@@ -143,7 +144,7 @@
 (setq helm-completion-in-region-fuzzy-match t)
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x b") 'helm-mini)
 
 ;; projectile
 (projectile-global-mode)
@@ -207,6 +208,7 @@
 (setq haskell-tags-on-save t)
 
 ;; emmet
+(add-hook 'web-mode-hook 'emmet-mode)
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
 (setq emmet-self-closing-tag-style " /")
