@@ -116,6 +116,7 @@ alias scheme='rlwrap -r -c -f "$HOME/mit_scheme_bindings.txt" scheme'
 
 export PS2='%_>'
 export MYSQL_PS1="\u@\h [\d]> "
+export LC_ALL=ru_RU.UTF-8
 
 export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
 

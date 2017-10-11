@@ -21,6 +21,7 @@ dfNames:
 - ~/.jshintrc
 - ~/.lein/profiles.clj
 - ~/.mpdconf
+- ~/.ncmpcpp
 - ~/.profile
 - ~/.pylintrc
 - ~/.sbclrc
