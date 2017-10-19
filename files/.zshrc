@@ -120,7 +120,7 @@ export LC_ALL=ru_RU.UTF-8
 
 export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
 
-export PATH="$HOME/.local/bin:$HOME/local/bin;$PATH"
+export PATH="$HOME/.local/bin:$HOME/local/bin:/usr/local/sbin:$PATH"
 export PATH="$HOME/.cask/bin:$PATH"
 export PATH="$HOME/.luarocks/bin:$PATH"
 export GOPATH=~/go

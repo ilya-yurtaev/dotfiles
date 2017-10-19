@@ -1,3 +1,9 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/vimproc.vim', {'do': 'make'}
@@ -25,7 +31,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
   let g:tagbar_left = 1
   let g:tagbar_autoclose=1
-  let g:tagbar_width = 25 
+  let g:tagbar_width = 25
   let g:tagbar_iconchars = ['+', '-']
   let g:tagbar_sort = 0
   noremap <F8> :TagbarToggle<cr>
@@ -185,14 +191,14 @@ autocmd GUIEnter * set visualbell t_vb=
 set laststatus=1
 set statusline=
 "set statusline+=\ %9*λ\ %6*\ %{bufnr(\"%\")}                                  "current buffer number
-"set statusline+=%1*\ %F\                                              "file path 
+"set statusline+=%1*\ %F\                                              "file path
 "set statusline+=%2*[                                                  "hl
-"set statusline+=%Y,\                                                  "file type 
-"set statusline+=%{&encoding},\                                        "encoding 
+"set statusline+=%Y,\                                                  "file type
+"set statusline+=%{&encoding},\                                        "encoding
 "set statusline+=%{&ff}]%4*                                            "file format
-"set statusline+=%m%r%h%w\                                             "flags 
+"set statusline+=%m%r%h%w\                                             "flags
 "set statusline+=%8*                                                   "hl
-"set statusline+=%{strftime(\"\%d.\%m.\%y\ \%H:\%I\",\ getftime(expand(\"\%\")))}\     "date modified 
+"set statusline+=%{strftime(\"\%d.\%m.\%y\ \%H:\%I\",\ getftime(expand(\"\%\")))}\     "date modified
 "set statusline+=%0*%=                                                 "hl and align right
 "set statusline+=%l:%-3v                                               "line:column
 "set statusline+=\ \ \ %7*%L\ %2*lines,\                               "lines count
@@ -205,7 +211,7 @@ if has("gui_running")
   let g:clipbrdDefaultReg = '+'
 
   " ms® windows™ specific
-  if has("gui_win32") 
+  if has("gui_win32")
     behave mswin
     se clipboard=unnamed
     language en
@@ -234,6 +240,7 @@ if has("gui_running")
 
   elseif has('macunix')
 		se fu
+    se guifont=Menlo:h13
   endif
 
 
