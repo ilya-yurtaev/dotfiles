@@ -31,6 +31,8 @@ source $ZSH/oh-my-zsh.sh
 
 DISABLE_AUTO_UPDATES="true"
 
+RPROMPT=''
+
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
