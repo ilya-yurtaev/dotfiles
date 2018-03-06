@@ -1,3 +1,6 @@
+let mapleader=","
+let g:mapleader=","
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -268,9 +271,6 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 
 
 " mappings
-let mapleader=","
-let g:mapleader=","
-
 imap jj <esc>
 
 nnoremap ; :

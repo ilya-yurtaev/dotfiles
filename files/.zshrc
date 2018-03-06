@@ -79,7 +79,7 @@ bindkey -v
 zmodload -i zsh/complist
 zmodload zsh/mathfunc
 
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+#source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 alias :r="source ~/.zshrc"
 alias :q="exit"
@@ -94,7 +94,7 @@ alias ll="ls -la | less"
 alias rm='rm -i'
 alias gvim='gvim --remote-tab-silent'
 alias zshrc='vim ~/.zshrc'
-alias tmux='tmux attach || tmux -u'
+#alias tmux='tmux attach || tmux -u'
 alias tmuxrc='vim ~/.tmux.conf'
 #alias python="python -Werror"
 alias runserver="DJANGO_DEBUG=1 python manage.py runserver 127.0.0.1:8080"
