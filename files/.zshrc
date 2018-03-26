@@ -28,6 +28,7 @@ source $ZSH/oh-my-zsh.sh
 ############################
 # Customize to your needs...
 ############################
+source ~/.profile
 
 DISABLE_AUTO_UPDATES="true"
 

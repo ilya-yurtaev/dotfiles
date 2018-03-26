@@ -1,6 +1,7 @@
 (source "gnu" "http://elpa.gnu.org/packages/")
 (source "melpa-stable" "http://stable.melpa.org/packages/")
 
+(depends-on "apache-mode")
 (depends-on "async")
 (depends-on "atom-one-dark-theme")
 (depends-on "auto-complete")
@@ -77,6 +78,7 @@
 (depends-on "helm-ls-hg")
 (depends-on "helm-mode-manager")
 (depends-on "helm-projectile")
+(depends-on "helm-rg")
 (depends-on "hindent")
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
