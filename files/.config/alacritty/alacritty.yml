@@ -16,8 +16,8 @@ env:
 # Window dimensions in character columns and lines
 # (changes require restart)
 dimensions:
-  columns: 80
-  lines: 24
+  columns: 800
+  lines: 240
 
 # Adds this many blank pixels of padding around the window
 # Units are physical pixels; this is not DPI aware.
@@ -285,3 +285,6 @@ shell:
  program: /usr/local/bin/zsh
  args:
    - --login
+
+# window:
+  # decorations: false

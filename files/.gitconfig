@@ -28,3 +28,5 @@
 	email = ilya.yurtaev@x5.ru
 [help]
 	autocorrect = 1
+[http]
+	postBuffer = 524288000

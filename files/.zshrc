@@ -21,7 +21,7 @@ ZSH_THEME="blinks"
 #COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(brew cabal composer docker extract git kubectl pip rails rbenv ruby stack vi-mode zsh-completions)
+plugins=(brew cabal composer docker extract git kubectl pip rbenv ruby stack vi-mode zsh-completions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,7 +50,11 @@ export LANG=ru_RU.UTF-8
 setopt appendhistory sharehistory hist_verify hist_ignore_all_dups hist_expire_dups_first hist_find_no_dups hist_ignore_space hist_reduce_blanks
 setopt extendedglob
 
+unsetopt correct_all
+unsetopt correct
 setopt auto_cd correct_all
+setopt auto_cd correct
+
 
 export CLICOLOR="xterm-color"
 #export LS_OPTIONS='--color=always'
@@ -89,7 +93,7 @@ alias emacs='emacsclient --quiet --no-wait -a "emacsclient -c --no-wait" -F "((f
 #alias ls='ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc"'
 # alias ll='ls -l'
 # alias l="ls $LS_OPTIONS -lA `echo $1` | less"
-alias l="ls -laih"
+alias l="gls --color --group-directories-first -laihA"
 alias ll="ls -la | less"
 # l(){ ls --group-directories-first $LS_OPTIONS -1 --ignore="*.pyc" $6 | sort | less }
 alias rm='rm -i'
