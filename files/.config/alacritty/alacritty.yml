@@ -16,8 +16,8 @@ env:
 # Window dimensions in character columns and lines
 # (changes require restart)
 dimensions:
-  columns: 800
-  lines: 240
+  columns: 80
+  lines: 50
 
 # Adds this many blank pixels of padding around the window
 # Units are physical pixels; this is not DPI aware.
@@ -96,7 +96,7 @@ colors:
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
     text: '0x000000'
-    cursor: '0xffffff'
+    cursor: '0xeeeeff'
 
   # Normal colors
   normal:
@@ -287,4 +287,5 @@ shell:
    - --login
 
 # window:
-  # decorations: false
+#   decorations: false
+#   fullscreen: true

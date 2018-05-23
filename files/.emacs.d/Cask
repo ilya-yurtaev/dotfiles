@@ -17,6 +17,7 @@
 (depends-on "coffee-mode")
 (depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "company")
+(depends-on "company-erlang")
 (depends-on "company-ghc")
 (depends-on "company-ghci")
 (depends-on "company-irony")
