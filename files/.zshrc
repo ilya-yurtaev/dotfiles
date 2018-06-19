@@ -119,6 +119,7 @@ alias history="history | less"
 alias cabal_upgrade="cabal list --simple-output --installed | gawk '{print $1}' | uniq | xargs -I {} cabal install {} --reinstall"
 alias info="info --vi-keys"
 alias scheme='rlwrap -r -c -f "$HOME/mit_scheme_bindings.txt" scheme'
+alias mc='mc --nosubshell'
 
 
 export PS2='%_>'
