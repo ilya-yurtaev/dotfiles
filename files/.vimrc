@@ -140,6 +140,7 @@ set autochdir
 set autoindent
 set autoread
 set background=dark
+hi Normal guibg=NONE ctermbg=NONE
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set backupdir=$TMPDIR
 set directory=$TMPDIR
