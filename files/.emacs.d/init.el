@@ -72,6 +72,7 @@
             (delete-trailing-whitespace)
             nil))
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook #'gofmt-before-save)
 
 
 ;; (paredit-everywhere-mode)
