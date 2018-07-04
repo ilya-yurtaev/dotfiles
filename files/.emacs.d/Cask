@@ -101,6 +101,7 @@
 (depends-on "magit")
 (depends-on "magit-popup")
 (depends-on "markdown-mode")
+(depends-on "mmm-mode")
 (depends-on "monokai-theme")
 (depends-on "multiple-cursors")
 (depends-on "nasm-mode")
