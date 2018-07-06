@@ -286,6 +286,6 @@ shell:
  args:
    - --login
 
-# window:
-#   decorations: false
+window:
+  decorations: false
 #   fullscreen: true
