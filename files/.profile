@@ -34,4 +34,7 @@ if [ -d "$HOME/.cargo/bin" ] ; then
 fi
 
 export PATH="$HOME/.cargo/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/Library/Python/2.7/bin/:$PATH"
+export PATH="$HOME/Library/Python/3.6/bin/:$PATH"
+export PATH="$HOME/Library/Python/3.7/bin/:$PATH"
 export LC_ALL=ru_RU.UTF-8
