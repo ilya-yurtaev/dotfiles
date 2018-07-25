@@ -25,7 +25,7 @@
 	helper = cache --timeout=36000
 [user]
 	name = Ilya Yurtaev
-	email = ilya.yurtaev@x5.ru
+	email = ilya.yurtaev@gmail.com
 [help]
 	autocorrect = 1
 [http]
