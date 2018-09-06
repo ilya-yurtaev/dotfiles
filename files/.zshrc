@@ -134,6 +134,7 @@ export PATH="$HOME/.luarocks/bin:$PATH"
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 export WORKON_HOME=~/.virtualenvs
+export ANSIBLE_NOCOWS=1
 
 # export PATH="$HOME/.cabal/bin:$PATH"
 # export PATH="/opt/ghc/8.0.1/bin:$PATH"
