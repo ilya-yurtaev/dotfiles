@@ -1,6 +1,8 @@
 (source "gnu" "http://elpa.gnu.org/packages/")
 (source "melpa-stable" "http://stable.melpa.org/packages/")
 
+(depends-on "angular-mode")
+(depends-on "ansible")
 (depends-on "apache-mode")
 (depends-on "async")
 (depends-on "atom-one-dark-theme")
