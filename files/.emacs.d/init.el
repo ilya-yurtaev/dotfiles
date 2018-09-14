@@ -121,8 +121,17 @@
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 
 ;; mode-line
-(setq-default mode-line-format nil)
-;; (set-face-attribute 'mode-line nil  :height 1 :box nil :underline "#553")
+;; (setq-default mode-line-format nil)
+(setq-default mode-line-format (list
+               ;; mode-name
+               "%m: "
+               ;; file path
+               (buffer-file-name (current-buffer))
+               " "
+               vc-mode
+               ))
+(set-face-attribute 'mode-line nil  :box nil :foreground "#000")
+(set-face-attribute 'mode-line-inactive nil :box nil :foreground "#000")
 ;; (setq mode-line-in-non-selected-windows nil)
 ;; (set-face-attribute 'mode-line-inactive nil
 ;;                     :underline t
@@ -394,7 +403,7 @@
  '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
-    ("c567c85efdb584afa78a1e45a6ca475f5b55f642dfcd6277050043a568d1ac6f" default)))
+    ("5f27195e3f4b85ac50c1e2fac080f0dd6535440891c54fcfa62cdcefedf56b1b" "16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" "c567c85efdb584afa78a1e45a6ca475f5b55f642dfcd6277050043a568d1ac6f" default)))
  '(elpy-modules
    (quote
     (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults)))
