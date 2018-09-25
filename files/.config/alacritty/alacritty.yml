@@ -288,5 +288,5 @@ shell:
    - --login
 
 window:
-  decorations: false
+  decorations: none
 #   fullscreen: true

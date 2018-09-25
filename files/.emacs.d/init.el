@@ -126,7 +126,7 @@
                ;; mode-name
                "%m: "
                ;; file path
-               (buffer-file-name (current-buffer))
+               "%b"
                " "
                vc-mode
                ))
