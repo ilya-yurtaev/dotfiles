@@ -140,6 +140,8 @@ export ANSIBLE_NOCOWS=1
 # export PATH="/opt/ghc/8.0.1/bin:$PATH"
 # export PATH="/opt/cabal/1.24/bin:$PATH"
 
+. ~/.zsh_creds || true
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
