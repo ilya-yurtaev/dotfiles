@@ -61,8 +61,8 @@ export CLICOLOR="xterm-color"
 export ZLS_COLORS=LS_COLORS
 #eval "`dircolors`"
 #export EDITOR="gvim --remote-tab-silent"
-export EDITOR='emacsclient --no-wait'
-export VISUAL='emacsclient -a --no-wait "emacsclient -t --no-wait"'
+export EDITOR='vim'
+export VISUAL='vim'
 export TERM=xterm-256color
 export PAGER=less
 #export NUMCPUS=`grep -c '^processor' /proc/cpuinfo`

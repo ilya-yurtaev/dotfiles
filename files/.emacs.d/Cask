@@ -132,6 +132,7 @@
 (depends-on "racket-mode")
 (depends-on "rainbow-delimiters")
 (depends-on "rainbow-mode")
+(depends-on "ranger")
 (depends-on "request")
 (depends-on "ruby-tools")
 (depends-on "rust-mode")
