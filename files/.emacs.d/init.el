@@ -114,14 +114,20 @@
 
 ;; mode-line
 ;; (setq-default mode-line-format nil)
-(setq-default mode-line-format (list
-               ;; mode-name
-               "%m: "
-               ;; file path
-               "%b"
-               " "
-               vc-mode
-               ))
+(setq-default mode-line-format
+              '(
+                ;; writable
+                "%e"
+                ;; modified
+                "%*"
+                " "
+                mode-line-buffer-identification
+                " "
+                (vc-mode vc-mode)
+                " "
+                mode-line-misc-info
+                mode-line-end-spaces
+                ))
 (set-face-attribute 'mode-line nil  :box nil :foreground "#000")
 (set-face-attribute 'mode-line-inactive nil :box nil :foreground "#000")
 ;; (setq mode-line-in-non-selected-windows nil)
@@ -230,9 +236,9 @@
 ;; (eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
-;(autoload 'ghc-init "stack ghc" nil t)
-;(autoload 'ghc-debug "stack ghc" nil t)
-;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+                                        ;(autoload 'ghc-init "stack ghc" nil t)
+                                        ;(autoload 'ghc-debug "stack ghc" nil t)
+                                        ;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (setq haskell-tags-on-save t)
 
 ;; emmet
