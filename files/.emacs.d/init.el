@@ -164,6 +164,8 @@
 
 ;; ranger
 (ranger-override-dired-mode t)
+(global-set-key (kbd "<f12>") 'ranger)
+(global-set-key (kbd "C-c C-e") 'eval-buffer)
 
 ;; projectile
 (projectile-global-mode)
@@ -193,7 +195,7 @@
 (require 'neotree)
 (setq neo-smart-open t)
 (setq neo-theme 'ascii)
-(global-set-key (kbd "<f12>") 'neotree-toggle)
+(global-set-key (kbd "<f10>") 'neotree-toggle)
 (add-hook 'neotree-mode-hook
           (lambda ()
             (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
@@ -372,7 +374,7 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-(global-set-key (kbd "<f10>") 'kill-this-buffer)
+;; (global-set-key (kbd "<f10>") 'kill-this-buffer)
 
 ;; misc
 (advice-add 'describe-mode :after '(lambda (&rest args) (call-interactively 'other-window)))

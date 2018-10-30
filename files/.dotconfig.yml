@@ -1,12 +1,7 @@
 appDir: ~/.dotfiles
 dfNames:
-- ~/.FBReader/config.changes
-- ~/.Xresources
-- ~/.compiz/default.profile
 - ~/.config/alacritty/alacritty.yml
 - ~/.config/flake8
-- ~/.config/synapse/config.json
-- ~/.config/systemd/user/emacs.service
 - ~/.conkyrc
 - ~/.dotconfig.yml
 - ~/.emacs.d/Cask
@@ -28,9 +23,7 @@ dfNames:
 - ~/.screenrc
 - ~/.stack/config.yaml
 - ~/.tmux.conf
-- ~/.valgrindrc
 - ~/.vimperatorrc
 - ~/.vimrc
 - ~/.xinitrc
-- ~/.xmonad/xmonad.hs
 - ~/.zshrc
