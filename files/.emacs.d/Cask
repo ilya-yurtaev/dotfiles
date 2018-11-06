@@ -68,6 +68,7 @@
 (depends-on "geiser")
 (depends-on "ggtags")
 (depends-on "ghc")
+(depends-on "ghub")
 (depends-on "git-commit")
 (depends-on "gnus-desktop-notify")
 (depends-on "go-autocomplete")

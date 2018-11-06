@@ -1,4 +1,4 @@
-user_pips:= pip rope jedi importmagic autopep8 yapf flake8
+user_pips:= pip rope jedi importmagic autopep8 yapf flake8 elpy
 
 test:
 		echo $(HOME)
@@ -15,7 +15,7 @@ nvm:
 		wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 python:
-		pip2 install --user --upgrade $(user_pips)
+		# pip2 install --user --upgrade $(user_pips)
 		pip3 install --user --upgrade $(user_pips)
 
 rbenv:
@@ -35,6 +35,10 @@ endif
 
 stack:
 		wget -qO- https://get.haskellstack.org/ | sh || stack upgrade
+
+tpm:
+		if "test ! -d ~/.tmux/plugins/tpm" \
+			"run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 
 vimplug:
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
