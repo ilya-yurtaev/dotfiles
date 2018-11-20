@@ -11,6 +11,7 @@
 (depends-on "base16-theme")
 (depends-on "bind-key")
 (depends-on "buffer-move")
+(depends-on "cargo")
 (depends-on "cask")
 (depends-on "cider")
 (depends-on "clang-format")
