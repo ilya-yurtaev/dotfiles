@@ -54,6 +54,7 @@
 (depends-on "expand-region")
 (depends-on "f")
 (depends-on "faceup")
+(depends-on "fill-column-indicator")
 (depends-on "find-file-in-project")
 (depends-on "flx")
 (depends-on "flx-ido")

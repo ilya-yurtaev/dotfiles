@@ -37,8 +37,8 @@
 (set-face-bold 'bold nil)
 (set-face-italic 'italic nil)
 
-;; (setq-default fci-rule-column 80)
-;; (setq fci-rule-width 1)
+(setq-default fci-rule-column 80)
+(setq fci-rule-width 1)
 ;; (global-fci-mode 1)
 
 ;; background transparency
@@ -172,25 +172,11 @@
 (projectile-global-mode)
 (setq projectile-enable-caching t)
 (helm-projectile-on)
+(setq projectile-indexing-method 'alien)
 
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq flymake-run-in-place nil)
-
-;; Configure flymake for Python
-(when (load "flymake" t)
-  (defun flymake-pylint-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-                       'flymake-create-temp-inplace))
-           (local-file (file-relative-name
-                        temp-file
-                        (file-name-directory buffer-file-name))))
-      (list "epylint" (list local-file))))
-  (add-to-list 'flymake-allowed-file-name-masks
-               '("\\.py\\'" flymake-pylint-init)))
-
-;; Set as a minor mode for Python
-(add-hook 'python-mode-hook '(lambda () (flymake-mode)))
 
 ;; neotree
 (require 'neotree)
@@ -322,7 +308,7 @@
 (elpy-enable)
 (add-hook 'python-mode-hook
           (function (lambda ()
-                      (highlight-indentation-mode 0)
+                      ;; (fci-mode 1)
                       (setq python-indent-offset 4)
                       (local-set-key (kbd "M-.") 'elpy-goto-definition)
                       (setq evil-shift-width 4))))
@@ -411,7 +397,7 @@
     ("5f27195e3f4b85ac50c1e2fac080f0dd6535440891c54fcfa62cdcefedf56b1b" "16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" "c567c85efdb584afa78a1e45a6ca475f5b55f642dfcd6277050043a568d1ac6f" default)))
  '(elpy-modules
    (quote
-    (elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv elpy-module-yasnippet elpy-module-sane-defaults)))
+    (elpy-module-company elpy-module-eldoc elpy-module-pyvenv elpy-module-yasnippet elpy-module-django elpy-module-autodoc elpy-module-sane-defaults)))
  '(evil-shift-width 2)
  '(fci-rule-color "#3C3D37")
  '(haskell-process-auto-import-loaded-modules t)
@@ -443,7 +429,7 @@
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (ghub sesman go-playground go-autocomplete ranger angular-mode ansible flycheck-pony ponylang-mode find-file-in-project mmm-mode vue-mode company-erlang inf-ruby helm-dash swift-mode apache-mode helm-rg js2-mode groovy-mode mingus flycheck-haskell flycheck-pycheckers elpy ctable package-build pylint ycm smart-mode-line-powerline-theme smooth-scrolling smooth-scroll cargo s queue helm-ag ghc org undo-tree ycmd flycheck-rust sqlup-mode rust-mode lua-mode projectile async company dockerfile-mode irony django-mode multiple-cursors base16-theme julia-mode pyvenv dash erlang evil haskell-mode ivy buffer-move faceup git-commit magit-popup php-mode auto-complete cider clojure-mode flycheck helm helm-core jedi-core magit request with-editor yasnippet yaml-mode yagist writeroom-mode web-mode web-beautify use-package typed-clojure-mode turnip sr-speedbar solarized-theme smex smartparens slime shm scss-mode ruby-tools rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-speedbar project-explorer prodigy popwin paredit-everywhere pallet org-alert org-agenda-property nodejs-repl nginx-mode neotree nasm-mode monokai-theme markdown-mode key-chord jsx-mode json-mode js2-refactor jedi-direx intero idle-highlight-mode htmlize hindent helm-projectile helm-mode-manager helm-ls-hg helm-ls-git helm-gtags helm-ghc go-mode gnus-desktop-notify ggtags geiser flycheck-ycmd flycheck-irony flycheck-ghcmod flycheck-dialyzer flycheck-cask flx-ido expand-region exec-path-from-shell evil-surround evil-paredit evil-org evil-nerd-commenter evil-magit esup ess emmet-mode elm-mode el-get edts ediprolog drupal-mode drag-stuff ctags company-ycmd company-web company-jedi company-irony company-ghci company-ghc color-theme-sanityinc-tomorrow coffee-mode clojure-mode-extra-font-locking clang-format auto-yasnippet atom-one-dark-theme)))
+    (fill-column-indicator ghub sesman go-playground go-autocomplete ranger angular-mode ansible flycheck-pony ponylang-mode find-file-in-project mmm-mode vue-mode company-erlang inf-ruby helm-dash swift-mode apache-mode helm-rg js2-mode groovy-mode mingus flycheck-haskell flycheck-pycheckers elpy ctable package-build pylint ycm smart-mode-line-powerline-theme smooth-scrolling smooth-scroll cargo s queue helm-ag ghc org undo-tree ycmd flycheck-rust sqlup-mode rust-mode lua-mode projectile async company dockerfile-mode irony django-mode multiple-cursors base16-theme julia-mode pyvenv dash erlang evil haskell-mode ivy buffer-move faceup git-commit magit-popup php-mode auto-complete cider clojure-mode flycheck helm helm-core jedi-core magit request with-editor yasnippet yaml-mode yagist writeroom-mode web-mode web-beautify use-package typed-clojure-mode turnip sr-speedbar solarized-theme smex smartparens slime shm scss-mode ruby-tools rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-speedbar project-explorer prodigy popwin paredit-everywhere pallet org-alert org-agenda-property nodejs-repl nginx-mode neotree nasm-mode monokai-theme markdown-mode key-chord jsx-mode json-mode js2-refactor jedi-direx intero idle-highlight-mode htmlize hindent helm-projectile helm-mode-manager helm-ls-hg helm-ls-git helm-gtags helm-ghc go-mode gnus-desktop-notify ggtags geiser flycheck-ycmd flycheck-irony flycheck-ghcmod flycheck-dialyzer flycheck-cask flx-ido expand-region exec-path-from-shell evil-surround evil-paredit evil-org evil-nerd-commenter evil-magit esup ess emmet-mode elm-mode el-get edts ediprolog drupal-mode drag-stuff ctags company-ycmd company-web company-jedi company-irony company-ghci company-ghc color-theme-sanityinc-tomorrow coffee-mode clojure-mode-extra-font-locking clang-format auto-yasnippet atom-one-dark-theme)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(projectile-globally-ignored-directories
