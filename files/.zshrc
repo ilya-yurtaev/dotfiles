@@ -68,8 +68,7 @@ export PAGER=less
 
 alias less="less -M"
 
-[[ $TERMCAP=="emacs" ]] && export TERM=dumb
-#export NUMCPUS=`grep -c '^processor' /proc/cpuinfo`
+[[ $TERMCAP = "emacs" ]] && export TERM=dumb
 export MAKEFLAGS=j
 [[ $EMACS = t ]] && unsetopt zle
 
