@@ -61,10 +61,14 @@ export CLICOLOR="xterm-color"
 export ZLS_COLORS=LS_COLORS
 #eval "`dircolors`"
 #export EDITOR="gvim --remote-tab-silent"
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR="vim"
+export VISUAL="vim"
 export TERM=xterm-256color
 export PAGER=less
+
+alias less="less -M"
+
+[[ $TERMCAP=="emacs" ]] && export TERM=dumb
 #export NUMCPUS=`grep -c '^processor' /proc/cpuinfo`
 export MAKEFLAGS=j
 [[ $EMACS = t ]] && unsetopt zle
