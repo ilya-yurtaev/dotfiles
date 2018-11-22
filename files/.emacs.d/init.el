@@ -328,7 +328,7 @@
 (setq diary-file "~/org/diary")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
-(global-set-key "\C-u" (lambda() (interactive) (find-file "~/.emacs.d/init.el")))
+(global-set-key "\C-i" (lambda() (interactive) (find-file "~/.emacs.d/init.el")))
 
 ;; calendar
 (setq calendar-time-zone 300)
