@@ -271,11 +271,7 @@ shell:
 
 window:
   decorations: none
-  # Window dimensions in character columns and lines
-  # (changes require restart)
-  dimensions:
-    columns: 80
-    lines: 50
+  start_maximized: true
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
