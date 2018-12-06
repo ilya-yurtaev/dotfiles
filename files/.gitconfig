@@ -20,13 +20,19 @@
 [alias]
 	find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
 	l = log --oneline --graph
+  branchez = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
+
+[tag]
+  sort = v:refname
 
 [credential]
 	helper = cache --timeout=36000
 [user]
 	name = Ilya Yurtaev
 	email = ilya.yurtaev@gmail.com
+
 [help]
 	autocorrect = 1
+
 [http]
 	postBuffer = 524288000
