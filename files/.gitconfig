@@ -30,6 +30,7 @@
 [user]
 	name = Ilya Yurtaev
 	email = ilya.yurtaev@gmail.com
+	signingkey = rsa4096
 
 [help]
 	autocorrect = 1
