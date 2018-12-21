@@ -142,11 +142,6 @@
 ;; (setq sml/theme 'dark)
 ;; (telephone-line-evil-config)
 
-;; ido
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-(setq ido-enable-flex-matching 1)
 (setq vc-follow-symlinks nil)
 
 ;; helm
@@ -161,6 +156,7 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-c p f") 'helm-projectile)
+(global-set-key (kbd "C-c p p") 'helm-projectile-switch-project)
 (global-unset-key (kbd "C-c p s s"))
 (global-set-key (kbd "C-c p s s") 'helm-projectile-rg)
 
@@ -220,6 +216,12 @@
 ;; (modern-c++-font-lock-global-mode t)
 
 ;; haskell
+(require 'lsp)
+(require 'lsp-ui)
+(add-hook 'haskell-mode-hook 'lsp)
+(setq lsp-haskell-process-path-hie "hie-wrapper")
+
+(setq haskell-tags-on-save t)
 ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 ;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 ;; (add-hook 'haskell-mode-hook 'intero-mode)
@@ -229,7 +231,20 @@
                                         ;(autoload 'ghc-init "stack ghc" nil t)
                                         ;(autoload 'ghc-debug "stack ghc" nil t)
                                         ;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
-(setq haskell-tags-on-save t)
+;; (eval-after-load 'haskell-mode '(progn
+;;                                   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+;;                                   (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+;;                                   (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
+;;                                   (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
+;;                                   (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
+;;                                   (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
+;;                                   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)))
+;; (eval-after-load 'haskell-cabal '(progn
+;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
+;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+;;                                    (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+;;                                    (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
+
 
 ;; emmet
 (add-hook 'web-mode-hook 'emmet-mode)
@@ -241,20 +256,6 @@
 (require 'scss-mode)
 
 
-
-(eval-after-load 'haskell-mode '(progn
-                                  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-                                  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-                                  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-                                  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-                                  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-                                  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-                                  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)))
-(eval-after-load 'haskell-cabal '(progn
-                                   (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-                                   (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-                                   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-                                   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
 
 ;; elm
 (add-to-list 'company-backends 'company-elm)
@@ -364,6 +365,14 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 ;; (global-set-key (kbd "<f10>") 'kill-this-buffer)
 
+(cond
+ ((string-equal system-type "darwin")
+  (setq mac-option-key-is-meta nil)
+  (setq mac-command-key-is-meta t)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil)
+  ))
+
 ;; misc
 (advice-add 'describe-mode :after '(lambda (&rest args) (call-interactively 'other-window)))
 
@@ -430,8 +439,8 @@
      ("melpa-stable" . "http://stable.melpa.org/packages/"))))
  '(package-selected-packages
    (quote
-    (lsp-mode jinja2-mode purescript-mode bind-key fill-column-indicator ghub sesman go-playground go-autocomplete ranger angular-mode ansible flycheck-pony ponylang-mode find-file-in-project mmm-mode vue-mode company-erlang inf-ruby helm-dash swift-mode apache-mode helm-rg js2-mode groovy-mode mingus flycheck-haskell flycheck-pycheckers elpy ctable package-build pylint ycm smart-mode-line-powerline-theme smooth-scrolling smooth-scroll cargo s queue helm-ag ghc org undo-tree ycmd flycheck-rust sqlup-mode rust-mode lua-mode projectile async company dockerfile-mode irony django-mode multiple-cursors base16-theme julia-mode pyvenv dash erlang evil haskell-mode ivy buffer-move faceup git-commit magit-popup php-mode auto-complete cider clojure-mode flycheck helm helm-core jedi-core magit request with-editor yasnippet yaml-mode yagist writeroom-mode web-mode web-beautify use-package typed-clojure-mode turnip sr-speedbar solarized-theme smex smartparens slime shm scss-mode ruby-tools rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-speedbar project-explorer prodigy popwin paredit-everywhere pallet org-alert org-agenda-property nodejs-repl nginx-mode neotree nasm-mode monokai-theme markdown-mode key-chord jsx-mode json-mode js2-refactor jedi-direx intero idle-highlight-mode htmlize hindent helm-projectile helm-mode-manager helm-ls-hg helm-ls-git helm-gtags helm-ghc go-mode gnus-desktop-notify ggtags geiser flycheck-ycmd flycheck-irony flycheck-ghcmod flycheck-dialyzer flycheck-cask flx-ido expand-region exec-path-from-shell evil-surround evil-paredit evil-org evil-nerd-commenter evil-magit esup ess emmet-mode elm-mode el-get edts ediprolog drupal-mode drag-stuff ctags company-ycmd company-web company-jedi company-irony company-ghci company-ghc color-theme-sanityinc-tomorrow coffee-mode clojure-mode-extra-font-locking clang-format auto-yasnippet atom-one-dark-theme)))
- '(pos-tip-background-color "#A6E22E")
+    (alert cask concurrent counsel dash-functional deferred diminish edit-indirect epc epl es-lib es-windows evil-leader f flx gntp gotest goto-chg graphql highlight-indentation ivy-erlang-complete jedi json-reformat json-snatcher log4e macrostep paredit pkg-info popup python-environment request-deferred shut-up ssass-mode swiper treepy visual-fill-column vue-html-mode web-completion-data lsp-ui lsp-mode jinja2-mode purescript-mode bind-key fill-column-indicator ghub sesman go-playground go-autocomplete ranger angular-mode ansible flycheck-pony ponylang-mode find-file-in-project mmm-mode vue-mode company-erlang inf-ruby helm-dash swift-mode apache-mode helm-rg js2-mode groovy-mode mingus flycheck-haskell flycheck-pycheckers elpy ctable package-build pylint ycm smart-mode-line-powerline-theme smooth-scrolling smooth-scroll cargo s queue helm-ag ghc org undo-tree ycmd flycheck-rust sqlup-mode rust-mode lua-mode projectile async company dockerfile-mode irony django-mode multiple-cursors base16-theme julia-mode pyvenv dash erlang evil haskell-mode ivy buffer-move faceup git-commit magit-popup php-mode auto-complete cider clojure-mode flycheck helm helm-core jedi-core magit request with-editor yasnippet yaml-mode yagist writeroom-mode web-mode web-beautify use-package typed-clojure-mode turnip sr-speedbar solarized-theme smex smartparens slime shm scss-mode ruby-tools rainbow-mode rainbow-delimiters racket-mode python-mode py-autopep8 projectile-speedbar project-explorer prodigy popwin paredit-everywhere pallet org-alert org-agenda-property nodejs-repl nginx-mode neotree nasm-mode monokai-theme markdown-mode key-chord jsx-mode json-mode js2-refactor jedi-direx intero idle-highlight-mode htmlize hindent helm-projectile helm-mode-manager helm-ls-hg helm-ls-git helm-gtags helm-ghc go-mode gnus-desktop-notify ggtags geiser flycheck-ycmd flycheck-irony flycheck-ghcmod flycheck-dialyzer flycheck-cask flx-ido expand-region exec-path-from-shell evil-surround evil-paredit evil-org evil-nerd-commenter evil-magit esup ess emmet-mode elm-mode el-get edts ediprolog drupal-mode drag-stuff ctags company-ycmd company-web company-jedi company-irony company-ghci company-ghc color-theme-sanityinc-tomorrow coffee-mode clojure-mode-extra-font-locking clang-format auto-yasnippet atom-one-dark-theme)))
+ '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")
  '(projectile-globally-ignored-directories
    (quote
@@ -460,7 +469,8 @@
      (360 . "#66D9EF"))))
  '(vc-annotate-very-old-color nil)
  '(weechat-color-list
-   (unspecified "#272822" "#3C3D37" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0")))
+   (quote
+    (unspecified "#272822" "#3C3D37" "#F70057" "#F92672" "#86C30D" "#A6E22E" "#BEB244" "#E6DB74" "#40CAE4" "#66D9EF" "#FB35EA" "#FD5FF0" "#74DBCD" "#A1EFE4" "#F8F8F2" "#F8F8F0"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

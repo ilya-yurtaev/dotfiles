@@ -1,4 +1,4 @@
-user_pips:= pip rope jedi importmagic autopep8 yapf flake8 elpy
+user_pips:= pip rope jedi importmagic autopep8 yapf flake8 elpy black
 
 test:
 		echo $(HOME)
