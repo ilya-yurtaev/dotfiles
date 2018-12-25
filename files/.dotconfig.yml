@@ -6,6 +6,7 @@ dfNames:
 - ~/.dotconfig.yml
 - ~/.emacs.d/Cask
 - ~/.emacs.d/Makefile
+- ~/.emacs.d/custom.el
 - ~/.emacs.d/init.el
 - ~/.eslintrc
 - ~/.ghci
