@@ -1,4 +1,5 @@
 user_pips:= pip rope jedi importmagic autopep8 yapf flake8 elpy black
+haskell_dev := hlint hoogle haskell-ide-engine
 
 test:
 		echo $(HOME)
@@ -7,6 +8,9 @@ all: python rbenv nvm composer vimplug stack zsh
 
 composer:
 		wget -qO- https://getcomposer.org/installer | php
+
+golang:
+	brew install go
 
 nix:
 		curl https://nixos.org/nix/install | sh
@@ -32,6 +36,9 @@ else
 		mkdir -p ~/.rbenv/plugins/
 		git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 endif
+
+rust:
+	curl https://sh.rustup.rs -sSf | sh
 
 stack:
 		wget -qO- https://get.haskellstack.org/ | sh || stack upgrade
