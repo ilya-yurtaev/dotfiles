@@ -65,6 +65,7 @@ export EDITOR="vim"
 export VISUAL="vim"
 export TERM=xterm-256color
 export PAGER=less
+export GPG_TTY=$(tty)
 
 alias less="less -M"
 
