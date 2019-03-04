@@ -216,16 +216,16 @@
 ;; (modern-c++-font-lock-global-mode t)
 
 ;; haskell
-(require 'lsp)
-(require 'lsp-ui)
-(require 'lsp-haskell)
-(add-hook 'haskell-mode-hook 'lsp)
-(setq lsp-haskell-process-path-hie "hie-wrapper")
+;; (require 'lsp)
+;; (require 'lsp-ui)
+;; (require 'lsp-haskell)
+;; (add-hook 'haskell-mode-hook 'lsp)
+;; (setq lsp-haskell-process-path-hie "hie-wrapper")
 
 (setq haskell-tags-on-save t)
 ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 ;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
-;; (add-hook 'haskell-mode-hook 'intero-mode)
+ (add-hook 'haskell-mode-hook 'intero-mode)
 ;; (eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
@@ -368,6 +368,7 @@
 (global-set-key (kbd "M-q") 'kill-emacs)
 ;; (global-set-key (kbd "<f10>") 'kill-this-buffer)
 
+;; Command -> Alt
 (cond
  ((string-equal system-type "darwin")
   (setq mac-option-key-is-meta nil)

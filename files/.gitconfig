@@ -14,13 +14,12 @@
 [push]
 	default = current
 
-[include]
-	path = ~/.git-credentials
-
 [alias]
 	find = log --pretty=\"format:%Cgreen%H %Cblue%s\" --name-status --grep
 	l = log --oneline --graph
   branchez = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:relative)%09%(refname:short)' refs/heads
+  cfg = config --list --show-origin
+  logs = log --show-signature
 
 [tag]
   sort = v:refname
@@ -31,10 +30,12 @@
 [user]
 	name = Ilya Yurtaev
 	email = ilya.yurtaev@gmail.com
-	signingkey = 1BDC81D1993AAD4B
 
 [help]
 	autocorrect = 1
 
 [http]
 	postBuffer = 524288000
+
+[include]
+	path = ~/.git-credentials
