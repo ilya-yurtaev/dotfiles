@@ -21,7 +21,7 @@ ZSH_THEME="blinks"
 #COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(brew cabal composer docker extract git kubectl pip rbenv ruby stack vi-mode zsh-completions)
+plugins=(brew cabal composer docker extract git kubectl pip rbenv ruby stack vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
