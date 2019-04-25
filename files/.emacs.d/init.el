@@ -15,6 +15,8 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (setq ns-pop-up-frames nil)
+(load "server")
+(unless (server-running-p) (server-start))
 
 ;; (setq frame-title-format "%b >>= Emacs")
 (load-theme 'monokai t)
@@ -113,6 +115,14 @@
 
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 
+;; elscreen
+(elscreen-start)
+(setq elscreen-display-tab nil)
+(define-key evil-normal-state-map "gt" 'elscreen-next)
+(define-key evil-normal-state-map "gT" 'elscreen-previous)
+(define-key evil-normal-state-map "gc" 'elscreen-create)
+(define-key evil-normal-state-map "gx" 'elscreen-kill)
+
 ;; mode-line
 ;; (setq-default mode-line-format nil)
 (setq-default mode-line-format
@@ -121,6 +131,7 @@
                 "%e"
                 ;; modified
                 "%*"
+                " "
                 " "
                 mode-line-buffer-identification
                 " "
