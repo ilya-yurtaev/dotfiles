@@ -66,9 +66,6 @@ font:
   # false.
   use_thin_strokes: true
 
-# Should display the render timer
-render_timer: false
-
 # Colors (Tomorrow Night Bright)
 colors:
   # Default colors
@@ -271,7 +268,7 @@ shell:
 
 window:
   decorations: none
-  start_maximized: true
+  startup_mode: SimpleFullscreen
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
