@@ -141,8 +141,8 @@
                 mode-line-misc-info
                 mode-line-end-spaces
                 ))
-(set-face-attribute 'mode-line nil  :box nil :foreground "#000")
-(set-face-attribute 'mode-line-inactive nil :box nil :foreground "#000")
+(set-face-attribute 'mode-line nil  :box nil :foreground "#000" :background "#080")
+(set-face-attribute 'mode-line-inactive nil :box nil :foreground "#000" :background "#050")
 ;; (setq mode-line-in-non-selected-windows nil)
 ;; (set-face-attribute 'mode-line-inactive nil
 ;;                     :underline t
