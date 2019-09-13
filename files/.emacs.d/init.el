@@ -110,19 +110,19 @@
   "cv" 'evilnc-toggle-invert-comment-line-by-line
   )
 (global-evil-surround-mode 1)
-(define-key evil-normal-state-map (kbd "M-.") 'elpy-goto-definition)
+;; (define-key evil-normal-state-map (kbd "M-.") 'elpy-goto-definition)
 (define-key evil-normal-state-map (kbd "H") 'previous-buffer)
 (define-key evil-normal-state-map (kbd "L") 'next-buffer)
 
 (modify-syntax-entry ?_ "w" (standard-syntax-table))
 
 ;; elscreen
-(elscreen-start)
-(setq elscreen-display-tab nil)
-(define-key evil-normal-state-map "gt" 'elscreen-next)
-(define-key evil-normal-state-map "gT" 'elscreen-previous)
-(define-key evil-normal-state-map "gc" 'elscreen-create)
-(define-key evil-normal-state-map "gx" 'elscreen-kill)
+;; (elscreen-start)
+;; (setq elscreen-display-tab nil)
+;; (define-key evil-normal-state-map "gt" 'elscreen-next)
+;; (define-key evil-normal-state-map "gT" 'elscreen-previous)
+;; (define-key evil-normal-state-map "gc" 'elscreen-create)
+;; (define-key evil-normal-state-map "gx" 'elscreen-kill)
 
 ;; mode-line
 ;; (setq-default mode-line-format nil)
@@ -350,16 +350,16 @@
 (setq rust-format-on-save t)
 
 ;; python
-(elpy-enable)
-(add-hook 'python-mode-hook
-          (function (lambda ()
-                      ;; (fci-mode 1)
-                      (setq python-indent-offset 4)
-                      (local-set-key (kbd "M-.") 'elpy-goto-definition)
-                      (setq evil-shift-width 4))))
-(setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "--simple-prompt -i")
-(setq elpy-rpc-timeout nil)
+;; (elpy-enable)
+;; (add-hook 'python-mode-hook
+;;           (function (lambda ()
+;;                       ;; (fci-mode 1)
+;;                       (setq python-indent-offset 4)
+;;                       (local-set-key (kbd "M-.") 'elpy-goto-definition)
+;;                       (setq evil-shift-width 4))))
+;; (setq python-shell-interpreter "ipython"
+;;       python-shell-interpreter-args "--simple-prompt -i")
+;; (setq elpy-rpc-timeout nil)
 
 ;; org mode
 (require 'org-alert)

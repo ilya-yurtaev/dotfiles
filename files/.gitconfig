@@ -6,10 +6,14 @@
 	ui = True
 
 [merge]
+  ff = false
 	tool = vimdiff
 
 [mergetool]
 	prompt = false
+
+[pull]
+  ff = true
 
 [push]
 	default = current
