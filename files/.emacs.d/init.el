@@ -26,6 +26,7 @@
              '(font . "Ubuntu Mono-16"))
              ;; '(font . "Fira Code-16"))
 (setq inhibit-startup-message t)
+(setq global-eldoc-mode nil)
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
 (scroll-bar-mode -1)
@@ -158,7 +159,7 @@
 
 ;; helm
 (require 'helm)
-(require 'helm-rg)
+(require 'helm-ag)
 (helm-mode 1)
 (recentf-mode 1)
 (setq-default recent-save-file "~/.emacs.d/recentf")
@@ -170,7 +171,7 @@
 (global-set-key (kbd "C-c p f") 'helm-projectile)
 (global-set-key (kbd "C-c p p") 'helm-projectile-switch-project)
 (global-unset-key (kbd "C-c p s s"))
-(global-set-key (kbd "C-c p s s") 'helm-projectile-rg)
+(global-set-key (kbd "C-c p s s") 'helm-projectile-ag)
 
 ;; ranger
 (ranger-override-dired-mode t)
