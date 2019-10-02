@@ -125,6 +125,8 @@ alias cabal_upgrade="cabal list --simple-output --installed | gawk '{print $1}' 
 alias info="info --vi-keys"
 # alias scheme='rlwrap -r -c -f "$HOME/mit_scheme_bindings.txt" scheme'
 alias mc='mc --nosubshell'
+alias track_all='for i in `git branch -a | grep remote | grep -v HEAD | grep -v master`; do git branch --track ${i#remotes/origin/} $i; done'
+
 
 
 export PS2='%_>'
