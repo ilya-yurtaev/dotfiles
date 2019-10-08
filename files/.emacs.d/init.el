@@ -173,6 +173,12 @@
 (global-unset-key (kbd "C-c p s s"))
 (global-set-key (kbd "C-c p s s") 'helm-projectile-ag)
 
+;; helm mini + projectile
+(setq helm-mini-default-sources '(helm-source-buffers-list
+                                  helm-source-recentf
+                                  helm-source-projectile-files-list
+                                  ))
+
 ;; ranger
 (ranger-override-dired-mode t)
 (global-set-key (kbd "<f12>") 'ranger)
