@@ -399,6 +399,8 @@
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
 ;; keys
+(global-unset-key (kbd "<escape> q"))
+(global-unset-key (kbd "M-q"))
 (global-set-key (kbd "<f1>") 'save-buffer)
 (global-set-key (kbd "<f2>") 'save-buffer)
 (global-set-key (kbd "S-M-<left>") 'shrink-window-horizontally)
