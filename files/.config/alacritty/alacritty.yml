@@ -268,7 +268,8 @@ shell:
 
 window:
   decorations: none
-  startup_mode: SimpleFullscreen
+  startup_mode: Windowed
+  # startup_mode: SimpleFullscreen
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
