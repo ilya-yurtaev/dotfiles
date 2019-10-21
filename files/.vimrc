@@ -10,3 +10,8 @@ set incsearch
 set hlsearch
 set paste
 set clipboard=unnamed
+set shortmess=I
+syntax on
+ft on
+
+map <F2> <esc>:w<cr>
