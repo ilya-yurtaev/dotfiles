@@ -12,6 +12,6 @@ set paste
 set clipboard=unnamed
 set shortmess=I
 syntax on
-ft on
+set ft
 
 map <F2> <esc>:w<cr>

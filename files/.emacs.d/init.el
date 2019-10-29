@@ -369,6 +369,10 @@
 ;;       python-shell-interpreter-args "--simple-prompt -i")
 ;; (setq elpy-rpc-timeout nil)
 
+
+;; lua
+;; (setq lua-indent-level 2)
+
 ;; org mode
 (require 'org-alert)
 ;; (org-alert-enable)
