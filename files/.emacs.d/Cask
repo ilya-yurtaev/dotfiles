@@ -153,6 +153,7 @@
 (depends-on "pallet")
 (depends-on "paredit")
 (depends-on "paredit-everywhere")
+(depends-on "parseedn")
 (depends-on "php-mode")
 (depends-on "pkg-info")
 (depends-on "ponylang-mode")

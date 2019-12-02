@@ -24,7 +24,7 @@
 (setq frame-background-mode 'dark)
 (add-to-list 'default-frame-alist
              '(font . "Ubuntu Mono-16"))
-             ;; '(font . "Fira Code-16"))
+;; '(font . "Fira Code-16"))
 (setq inhibit-startup-message t)
 (setq global-eldoc-mode nil)
 (tool-bar-mode -1)
@@ -245,7 +245,7 @@
 (setq haskell-tags-on-save t)
 ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 ;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
- (add-hook 'haskell-mode-hook 'intero-mode)
+(add-hook 'haskell-mode-hook 'intero-mode)
 ;; (eval-after-load 'flycheck
 ;;   '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
@@ -371,7 +371,11 @@
 
 
 ;; lua
-;; (setq lua-indent-level 2)
+(setq lua-indent-level 4)
+(add-hook 'lua-mode-hook
+          (function (lambda ()
+                      (setq evil-shift-width 4)
+                      )))
 
 ;; org mode
 (require 'org-alert)
