@@ -74,6 +74,10 @@ alias less="less -M"
 export MAKEFLAGS=j
 [[ $EMACS = t ]] && unsetopt zle
 
+if [[ $TERM = dumb ]]; then
+  unset zle_bracketed_paste
+fi
+
 setopt MENUCOMPLETE
 setopt complete_in_word
 setopt AUTO_LIST
